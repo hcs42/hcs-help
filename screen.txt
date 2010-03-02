@@ -1,0 +1,53 @@
+--------
+Sessions
+--------
+
+screen -d
+    Detach other session.
+screen -x
+    Attach to a not detached screen.
+screen -r
+    Reattach to a detached screen process.
+C-a d
+    Detach session
+
+-------
+Windows
+-------
+
+C-a c
+    New window.
+C-a S
+    Split window.
+C-a "
+C-a 0..9
+    Select window.
+C-a p
+    Previous window.
+C-a n
+    Next window.
+C-a : number <number>
+    Changing the window number.
+C-a A
+    Renaming a window title.
+
+-------
+Regions
+-------
+
+C-a tab
+    Next region
+C-a Q
+    Delete other regions
+C-a X
+    Delete current region
+C-a : resize <arg>
+    +N    increase current region height by N
+    -N    decrease current region height by N
+     N    set current region height to N
+     =    make all windows equally high
+     max  maximize current region height
+     min  minimize current region height
+
+Vim window = screen region
+Vim buffer = screen window

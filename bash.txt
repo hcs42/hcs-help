@@ -1,0 +1,5 @@
+abspath, basename, pathname:
+
+    readlink -f "$file" # abs path
+    basename "$file"
+    dirname "$file"

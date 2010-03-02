@@ -1,0 +1,5 @@
+abspath, basename, pathname:
+
+    os.path.abspath(path)
+    os.path.basename(path)
+    os.path.dirname(path)
