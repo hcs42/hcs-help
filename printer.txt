@@ -1,0 +1,7 @@
+System -> Administration -> Printing
+http://localhost:631
+
+vim:
+    set printdevice=Deskjet-3900
+    set pheader=
+    set penc=latin2

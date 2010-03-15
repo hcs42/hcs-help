@@ -1,0 +1,23 @@
+grep
+  in commit message
+    Gl -i -E --grep="<pattern>"
+  in body
+    Gl -p -S"<pattern>"
+showing one commit
+    Gl -p -n1 <commit>
+graph
+    Gl --all --graph --decorate --date-order --date=default
+    Gl --all --decorate --date=default --walk-reflogs --no-merges
+since
+    Gl -p --since=2009-06-01
+following a file
+    Gl --follow <file>
+--color-words
+--stat
+--check
+    Check for trailing white spaces
+--date=default
+--parent
+--pretty=short
+    Don't print the body of the commit messages.
+--no-merges

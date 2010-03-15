@@ -1,0 +1,30 @@
+Invocation:
+    python -m pdb test.py test_hklib Test_Generator_NEW test_print_postitems_NEW
+    python -m pdb hk.py --configfile=ums.cfg --hkrc=hkrc_csabahoch --hkrc=local 'g();q()'
+
+Or:
+    >>> import pdb
+    >>> import test
+    >>> pdb.run('test.main(["test_hklib", "Test_Generator", "test_print_postitems"])')
+
+pdb shell:
+    h <command>  - help
+
+    s            - do only one step
+    n            - execute the next line in current function
+    r            - continue until the current function returns
+    c            - continue
+
+    a            - args of current function
+    u, d         - moving in the stack trace
+    w            - print a stack trace
+    l            - list source code
+
+    !<python code>  - run python code
+
+Breakpoints:
+    b hklib.py:123  - make a breakpoint
+    cl 1 2          - clear a breakpoint
+    b               - list all breakpoints
+    enable 1 2
+    disable 1 2

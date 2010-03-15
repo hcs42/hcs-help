@@ -1,0 +1,5 @@
+git remote add <remotename> <refspec>
+git remote prune <remotename>
+git fetch <remotename>
+git push <remotename> <branch>
+git push <remotename> :<branch>

@@ -1,0 +1,16 @@
+Things to try out:
+    git add -i
+    git bundle
+    git bisect run <program>
+    git cherry
+
+Starting the git server daemon:
+    git daemon --reuseaddr --verbose --base-path=/a/public/git_dirs \
+        --export-all -- /a/public/git_dirs/heap /a/public/git_dirs/heap_mail
+    git ls-remote git://78.131.80.66/heap_mail
+
+History of a file (that has been renamed):
+    git whatchanged -M -- path/filename1 path/filename2
+
+GC:
+    git repack -a -d -f --depth=250 --window=250

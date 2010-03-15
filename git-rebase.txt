@@ -1,0 +1,12 @@
+Modifying history:
+    $ git branch tmp
+    $ git reset --soft <sha-original>
+    $ git commit -vac tmp
+    $ git -D tmp
+More commit into one:
+    - git reset --soft <commit>
+    - git commit -a
+One commit into more parts:
+    - git reset --soft HEAD^
+    - git commit <files into first commit>
+    - git commit <files into second commit>

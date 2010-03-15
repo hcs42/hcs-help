@@ -1,0 +1,4 @@
+$ git bisect start
+$ git bisect bad
+$ git bisect good master
+$ git bisect reset

@@ -1,0 +1,4 @@
+    - Get the torrent from http://www.ubuntu.com/getubuntu/downloadmirrors#bt and
+      download it with Azureus.
+    - $ md5sum *.iso
+    - Type the checksum here: https://help.ubuntu.com/community/UbuntuHashes

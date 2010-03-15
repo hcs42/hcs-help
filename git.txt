@@ -1,0 +1,20 @@
+Shortcuts in /a/cp/bash/bashrc:
+  Gh: git help
+  Gc, GC: git commit
+  Gco: git checkout
+  Gb: git branch
+  Gp: pull, Gpu: push, GPU: smart push
+  Gs: git status
+  Gd, GD: git diff
+  Gt: gitk &
+
+How to...
+  revert: git checkout <branch> <file>
+  cat: git show <branch>:<filename>
+  ls: git ls-files
+  stash: git stash; ...; git stash apply
+  set up:
+      git config --global user.name "Csaba Hoch"
+      git config --global user.email csaba.hoch@gmail.com
+
+See also: git-*

@@ -1,3 +1,10 @@
+output
+    output = subprocess.Popen(["ls", "/"], stdout=subprocess.PIPE).communicate()[0]
+
+tempfile
+    tempfile.mkstemp([suffix, prefix]) -> filehandle, filename
+    tempfile.mkdtemp([suffix, prefix]) -> dirname
+
 abspath, basename, pathname:
 
     os.path.abspath(path)

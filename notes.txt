@@ -1,0 +1,70 @@
+ xemacs
+    toolbar eltüntetése:
+        (customize-set-variable 'toolbar-visible-p nil)
+
+ mplayer
+   getting Mindentudas Egyeteme
+    mencoder LINK -oac lavc -ovc copy -o 'OUTPUT_FILE_NAME' 2>/dev/null 1>/dev/null
+    mencoder Csepe\ Valeria\ -\ Miert\ csak\ az\ ember\ olvas.avi \
+        -oac copy -ovc lavc -o 5e.avi \
+        -lavcopts vbitrate=5000:vhq 1>/dev/null 2>/dev/null
+   sound playing
+    mplayer /-/media/audio/hangok/mindenfele/egyeb/LASER.WAV 2>/dev/null 1>/dev/null -af volume=.0:0
+
+ cd recording
+    wodim -v speed=2 dev=/dev/hdc x.iso
+
+ mount
+    $ sudo mount -o rw,uid=1000 /dev/sdb1 /mnt
+
+ rpm
+    # unpacking rpm without installing it:
+    rpm2cpio <rpm> | cpio -id
+
+ kde
+    Ne adjon ki hangot.
+    A ~/.kde/Autostart könyvtárba egy ilyen fájl:
+        #!/bin/bash
+        xset -b
+
+ Beep kiiktatása
+    $$ rmmod pcspkr
+
+    illetve
+
+    $ xset -b
+
+ Font telepítése
+    Másold a /usr/share/fonts/truetype/valami könyvtárba a fontot és
+    # sudo fc-cache -f -v
+
+ Vim remote
+    $ vim --serverlist
+    GVIM
+    $ vim --servername GVIM --remote-send ':q<cr>'
+
+ vnc
+
+    $ Xvnc :3 rfbauth=/home/hcs/.vnc/passwd
+    $ vncserver -geometry 1183x800 :3
+
+    $ vncpasswd
+    $ cd /--/programs3/tvnc
+    $ vncviewer localhost:3
+    $ twm -display :3
+    $ icewm --display=:3
+
+ man
+    man -k zip
+
+ adding users:
+    adduser
+
+ mounting iso files:
+    // http://www.ubuntugeek.com/mount-and-unmout-iso-images-without-burning-them.html
+    sudo mount debianetch.iso /media/isoimage/ -t iso9660 -o loop
+ creating iso files:
+    mkisofs -o mandvd.iso DVD
+ playing dvd iso:
+    mplayer -dvd-device movie.iso dvd://2
+    totem and vlc just works

@@ -1,0 +1,5 @@
+git format-patch <sha of the last commit not to be included>
+git am <filename>
+
+git bundle create <filename>.bundle master <sha id of last common commit>
+git fetch <filename>.bundle master:x

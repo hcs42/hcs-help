@@ -1,0 +1,3 @@
+Remote port forwarding:
+    ssh -R 2222:localhost:22 hcs@<my ip>
+    ssh -R 5900:localhost:5900 hcs@<my ip>

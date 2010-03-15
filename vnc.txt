@@ -1,0 +1,4 @@
+Becsatlakozás Ubuntura, létező desktopra:
+$ x11vnc -usepw -display :0
+
+(Lásd még: H notes)

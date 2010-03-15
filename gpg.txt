@@ -1,0 +1,4 @@
+encrypting a file:
+    $ gpg -c <file>
+decrypting a file:
+    $ gpg -c <encrypted file>

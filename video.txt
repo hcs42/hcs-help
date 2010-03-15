@@ -1,0 +1,61 @@
+ = lejátszás =
+
+    $ mplayer *.avi -ass-use-margins -ass-bottom-margin 50 -ass -ass-font-scale 2
+
+ = konvertálás =
+
+  == nagy mp4 -> ok avi ==
+
+    ( kameráról átvett mp4-ből elfogathadó minőségű avi)
+    $ ffmpeg -i 1.mp4 -b 1000k 1.avi
+
+  == vob -> avi ==
+
+    $ cat vts_01_{1,2,3}.vob | \
+      nice -+19 \
+      mencoder -o ta_mat.avi \
+      -ovc lavc -oac mp3lame -lameopts abr:br=128 -lavcopts aspect=16/9 -
+
+ = dvd rippelés (dvd -> avi) =
+
+    - acidrip: ez tűnik a legjobbnak (dvd -> avi)
+    - ogmrip: a Fideszes dvd-nél jól működött, de a Másfélnél rossz minőségű
+      lett az ogm (dvd -> ogm)
+    - arista
+    - thoggen
+
+ = cd rippelés =
+
+    - asunder
+    - ripoff
+    - ripperx
+
+ = vágás =
+
+    - avidemux
+
+ = dvd-re írás =
+
+  == avi -> dvd iso ==
+
+   === programok ===
+
+    - devede - remekül működik
+    - mandvd - nincs hang a dvd-ben
+    - qdvdauthor - túl komplikált
+    - todiscgui - a GUI-ból nem reagál; parancssorból sokáig fut és nem iso-t
+        csinál, csak könyvtárakat
+        todisc -files /a/_/azbeszt* -titles "Marsi Kriszti" "Azbeszt" -out todisc
+
+    - dvd írás kipróbálása:
+      - az iso fájlt lejátsza a (Totem) Movie Player és a VLC is
+      - mplayer:
+        $ mplayer -dvd-device movie.iso dvd://2
+
+  == vobs -> dvd iso ==
+
+    $ mkisofs -o dvd.iso dvd_dir
+
+  == iso mountolása ==
+
+    mount -t iso9660 -o loop /media/usbdisk/myiso.ISO /media/dvdrecorder/
