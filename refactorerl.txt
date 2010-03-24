@@ -1,0 +1,19 @@
+---------------
+TROUBLESHOOTING
+---------------
+
+Problem: RefactorErl won't start, but it used to.
+
+Solution 1: Maybe another RefactorErl instance is running.
+
+Solution 2: If the installed Erlang/OTP version might have
+changed, try "make clean && make".
+
+-----
+USAGE
+-----
+
+ri:h()
+    Help
+
+
