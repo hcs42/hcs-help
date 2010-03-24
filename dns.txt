@@ -1,0 +1,25 @@
+old DNS servers:
+    193.110.56.8
+    193.110.57.4
+
+new DNS servers (Google):
+    8.8.8.8
+    8.8.4.4
+
+nslookup <hostname>
+
+Name:	google.com
+Address: 74.125.87.103
+Name:	google.com
+Address: 74.125.87.104
+Name:	google.com
+Address: 74.125.87.105
+Name:	google.com
+Address: 74.125.87.106
+Name:	google.com
+Address: 74.125.87.147
+Name:	google.com
+Address: 74.125.87.99
+
+Name:	pizza.hu
+Address: 195.56.189.89

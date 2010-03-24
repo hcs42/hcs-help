@@ -1,0 +1,15 @@
+How do I reset the ESR-1220 back to factory default settings?
+Timing is very important when resetting the ESR-1220.
+
+1.  Unplug the power from the ESR-1220.
+
+2.  Plug the power back into the ESR-1220 and count 30 seconds.  At 30 seconds
+hold down the reset button located next to the Ethernet port for 10 seconds and
+release.
+
+3.  The ESR-1220 will take 45 seconds to reboot after the reset button is
+released.  Once the device has finished rebooting, you should be able to access
+the GUI by typing the defualt IP address 192.168.1.1 in your web browser.  User
+name and password are both "admin".
+
+http://www.engeniustech.com/datacom/products/resources.aspx?faq=8&ID=197

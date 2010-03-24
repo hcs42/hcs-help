@@ -17,11 +17,11 @@ Windows
 
 C-a c
     New window.
-C-a S
-    Split window.
 C-a "
 C-a 0..9
     Select window.
+C-a w
+    Print the list of windows.
 C-a p
     Previous window.
 C-a n
@@ -30,11 +30,15 @@ C-a : number <number>
     Changing the window number.
 C-a A
     Renaming a window title.
+C-a N
+    Show info about the current window.
 
 -------
 Regions
 -------
 
+C-a S
+    Split region.
 C-a tab
     Next region
 C-a Q
@@ -48,6 +52,13 @@ C-a : resize <arg>
      =    make all windows equally high
      max  maximize current region height
      min  minimize current region height
+
+----
+Misc
+----
+
+C-a H
+    Log
 
 Vim window = screen region
 Vim buffer = screen window

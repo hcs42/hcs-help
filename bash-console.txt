@@ -1,0 +1,55 @@
+------
+Moving
+------
+
+M-f, M-b
+    Moving one word
+C-a, C-e
+    Beginning/end of the line
+C-] <char>, M-C-] <char>
+    Vim: f<char>, F<char>
+
+--------
+Deleting
+--------
+
+C-d, Backspace
+    Delete next/prev char
+M-d, Alt-backspace
+    Delete next/prev word
+C-w
+    Delete
+C-u, C-k
+    Delete beginning/end of line
+
+-----
+Macro
+-----
+
+C-x (
+    Beginning
+C-x )
+    End
+M-<n> C-x e
+    Replay <n> times
+
+-----------
+Completions
+-----------
+
+M-/
+    Filename
+
+----
+Misc
+----
+
+C-o
+    Execute and continue line
+C-_
+    Undo
+M-<n>
+ESC <n>
+    Number
+M-#
+    Insert a comment to the beginning of the line
