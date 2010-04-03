@@ -53,12 +53,45 @@ C-a : resize <arg>
      max  maximize current region height
      min  minimize current region height
 
+---------
+Copy mode
+---------
+
+C-a <esc>
+    Enter copy mode.
+/, ?, n, N
+    Search
+<space>
+    Mark, copy to paste buffer
+A
+    Append to paste buffer
+
+-------
+Buffers
+-------
+
+C-a >
+    Write the paste buffer to /tmp/screen-exchange
+C-a <
+    Read the paste buffer from /tmp/screen-exchange
+C-a ]
+    Paste the paste buffer
+
 ----
 Misc
 ----
 
 C-a H
     Log
+C-a M
+    Monitor the current window for activity
+C-a _
+silence [on|off|sec]
+    Monitor the current window for silence
+sessionname [name]
+    Set the session name
+shelltitle [title]
+    Sets the default shell title
 
 Vim window = screen region
 Vim buffer = screen window

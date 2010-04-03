@@ -53,3 +53,5 @@ ESC <n>
     Number
 M-#
     Insert a comment to the beginning of the line
+C-x C-e
+    Editing the line in an editor
