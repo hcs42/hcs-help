@@ -1,0 +1,8 @@
+C-b
+    Toggles bookmark bar
+C-T
+    Reopens the last closed tabs
+C-L
+    Go to the address bar
+C-d
+    Bookmark the current page
