@@ -1,0 +1,17 @@
+
+Loading modules
+---------------
+
+code:purge(mymodule).
+    Purges mymodule.
+code:load_file(mymodule).
+code:load_abs("/home/me/mymodule"). % no ".beam"
+    Loads mymodule.
+l(mymodule), nl(mymodule)
+    Loads mymodule to this or all nodes.
+c("/home/me/mymodule"). % no ".beam"
+    Compiles and loads mymodule.
+m()
+    Shows loaded modules.
+
+Manual pages: erl, erlang, shell, code, c
