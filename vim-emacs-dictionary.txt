@@ -1,0 +1,260 @@
+--------------------
+Vim-Emacs dictionary
+--------------------
+
+-------
+General
+-------
+
+Expressions:
+    Status line                 Mode line
+    Command-line                Echo Area, Minibuffer
+    Visual area                 Region
+    Command-line completion     Completion
+    Numbered registers          Kill ring
+    Highlighting matches        Interactive Highlighting
+    Folding                     Selective Display
+    Tabs                      ~ Frames
+
+General:
+    :                          M-x
+    :[command]<cr>             M-x [command]<cr>
+    :<c-f>                     M-x <PgUp>
+                               M-x list-command-history
+    :quit<cr>                  C-x C-c
+    {command-line}<esc>        {minibuffer} C-g
+    {command-line}<up>         {minibuffer}<up>
+    {command-line}<down>       {minibuffer}<down>
+    enter in the minibuffer    {minibuffer}C-o
+    {command-line}<tab>        {minibuffer}<tab>
+
+    u                           C-_
+    [num]u                      M-[num] C-_
+    <c-r>                       After C-f, undo becomes redo
+
+    [num]{command}              C-u [num] {command}
+                                M-[num] {command}
+
+Help:
+    help                        C-h c [key], C-h k [key]
+    help                        C-h f [function]<cr>
+    :help<cr>                   C-h r
+    :map<cr>                    C-h b
+    :helpgrep [text]<cr>        C-h a [text]<cr>
+
+Information:
+    g<C-g>                      M-x what-line<cr>
+    ga, g<C-g>                  C-x =
+    show the current line       M-x line-number-mode<cr>
+    :set cursorline<cr>         M-x hl-line-mode<cr>
+
+-------------
+Moving around
+-------------
+
+Movements:
+    [num][movement]             M-[num] [movement]
+    ^                           M-m
+    w                           M-f
+    b                           M-b
+    [num]gg                     M-[num] M-g M-g
+                                M-g M-g [num] <cr>
+    gj,gk,g0,g$                 (30-31.o)
+    %                           C-M-f, C-M-b
+    M                           M-r
+    H                           M-0 M-r
+    [num]H                      M-[num] M-r
+    L                           M-<minus> M-r
+    [num]L                      M-[-num] M-r
+
+Scrolling:
+    [num]<c-e>                  M-[num] <PgDn>
+    [num]<c-y>                  M-[num] <PgUp>
+    zz                          C-l
+    zt                          M-0 C-l
+    zb                          M-<minus> C-l
+
+Marks / Positions:
+    m[mark]                     C-x r <space> [reg]
+    `[mark]                     C-x r j [reg]
+
+Jump list ~ Mark Ring:
+    <c-o>                     ~ C-u C-<space>
+
+--------------
+Making changes
+--------------
+
+Basic changes:
+    i<cr><esc>k$                C-o
+    more empty lines->one,      C-x C-o
+    one empty line->zero
+    J                         ~ M-^
+    :.s/ *\%# *//<cr>         ~ M-\
+    :.s/ *\%# */ /<cr>        ~ M-<space>
+    {visual}gu                  C-x C-l
+    {visual}gU                  C-x C-u
+
+Visual mode / mark:
+    v                           C-<space>
+    v                           C-<space> C-<space> // transient mark mode
+    Switch to transient mark    M-x transient-mark-mode
+    mode
+    <C-v>                       C-<space>
+    {visual}o                   C-x C-x
+    Information about the       M-=
+    region
+    GVgg                        C-x h
+    veo                         M-@
+    vap                       ~ M-h
+
+Delete, yank, paste / kill, delete, copy, yank:
+    dw                          M-d
+    db                          M-<del>
+    x                           C-d
+    dw                          C-<del>
+    d                           C-w
+    D                           C-k  // at the beginning or middle of a line
+    J                           C-k  // at the end of the line
+    [num]DJ                     M-[num] C-k
+    dd                          C-S-backspace
+    [num]dd                     M-[num] C-S-backspace
+    y                           M-w
+    p                           C-y
+    df[char]                    M-z [char]
+    Replace text just yanked    M-y
+    with an earlier batch of 
+    killed text.
+    
+Registers:
+    "[reg]y                     C-x r s [reg]
+    "[reg]p                     C-x r i [reg]
+    :registers [reg]<cr>        M-x view-register<cr>[reg]
+
+Blockwise visual mode / rectangle selection:
+    //{bv} = {blockwise visual}
+    {bv}d                       C-x r k
+    {bv}"_d                     C-x r d
+    {bv}p                       C-x r y
+    {bv}"[reg]d                 C-u C-x r r [reg]
+    {bv}"[reg]y                 C-x r r [reg]
+    {bv}"[reg]p                 C-x r i [reg]
+    {bv}I[text]<esc>            M-x string-insert-rectangle<cr>[text]<cr>
+    {bv}c[text]<esc>            C-x r t [text] 
+
+Numbers in registers:
+    :let @[reg]=[num]            M-[num] C-x r n [reg]
+    :let @[reg]=@[reg]+[num]<cr> M-[num] C-x r + [reg]
+    "[reg]p                      C-x r i [reg]
+
+Find and replace:
+    /[string]<cr>               C-s [text] <cr>
+    n                           C-s
+    //<cr>                      C-s C-s
+    find words after each other C-s <cr> C-w [words] <cr>
+    ?                           C-r
+    :.,$s/[from]/[to]/g         M-x replace-string<cr>[from]<cr>[to]<cr>
+                                M-x replace-regexp<cr>[from]<cr>[to]<cr>
+    {visual}:*s/[from]/[to]/g   {transient mark mode}M-x replace-string<cr>[from]<cr>[to]<cr>
+                                {transient mark mode}M-x replace-regexp<cr>[from]<cr>[to]<cr>
+
+Word completion / Dynamic Abbrev Expansion:
+    {insert}<c-n>               M-/
+    {insert}<c-p>               M-<minus> M-/
+
+Indentation:
+    {visual}=                   C-M-\
+    {visual}[num]>              M-[num] C-x <tab>
+    {visual}[num]<              M-[-num] C-x <tab>
+
+Formatting text / Auto Fill:
+    gqap                        M-q
+    {visual}gq                  M-x indent-region
+    :set formatoptions+=t       M-x auto-fill-mode  or
+                                (setq sentence-end-double-space nil)
+    :set textwidth=[i]          M-[i] C-x f  or
+                                (setq fill-column [i])
+    :set expandtab              (setq indent-tabs-mode nil)
+    :set tabstop=[n]            (setq tab-width [n])
+    :retab                      M-x tabify
+                                M-x untabify
+
+Repeating commands:
+    .                         ~ C-x z
+    @:                        ~ C-x <esc><esc><cr>
+
+Recording commands / Keyboard macros:
+  //if a marco is not being recorded:
+    q[reg]                      <F3>
+                                C-x (
+    @[reg]                      <F4>
+                                C-x e
+  //if a marco is being recorded:
+    q                           <F4>
+                                C-x )
+    q@[reg]                     C-x e
+
+Miscellaneous:
+    i<c-v>[spec.char]           C-q [spec.char]
+    i<c-v>[dec.num]             C-q [octal num]<cr>
+                                <<read-quoted-char-radix=10>>
+                                C-q [decimal num]<cr>
+
+-------------------------------------
+Buffers, files, windows, tabs, frames
+-------------------------------------
+
+Files, buffers:
+    :e [file]<cr>               C-x C-f [file]<cr>
+    :buffers                    C-x C-b
+    :buffer [buffer]            C-x b [buffer]<cr>
+    :sbuffer [buffer]           C-x 4 b [buffer]<cr>b
+    :w                          C-x C-s
+    renaming buffers            M-x rename-buffer<cr>[name]<cr>
+    :previous                   C-x <left>
+    :next                       C-x <right>
+
+Windows:
+    <C-w>w                      C-x o
+    <C-w>c                      C-x 0
+    <C-w>o                      C-x 1
+    <C-w>s, :sp<cr>             C-x 2
+    <C-w>v, :vs<cr>             C-x 3
+    [num]<C-w>+                 [M-[num]] C-x ^
+    [num]<C-w>-                 [M-[-num]] C-x ^
+    [num]<C-w><                 [M-[num]] C-x {
+    [num]<C-w>>                 [M-[num]] C-x }
+    <C-w>=                      C-x +
+    <C-w>j<PgUp><C-w>k          Esc PgUp
+    <C-w>j<PgDown><C-w>k        Esc PgDown
+ 
+Tabs ~ Frames:
+    gt                          C-x 5 o
+    :tabclose<cr>               C-x 5 0
+    :tabonly<cr>                C-x 5 1
+    :tabnew<cr>                 C-x 5 2
+
+-------------
+Miscellaneous
+-------------
+    
+Etc:
+    <c-c>                       C-g
+
+Vim script / Emacs Lisp:
+    V:@*<cr>                    C-x C-e
+    {visual}:@*<cr>                    C-x C-e
+
+Shell:
+   :shell                       M-x term<cr><cr>
+                                M-x shell<cr>
+
+Appearance:
+    :set mousehide<cr>        ~ (mouse-avoidance-mode 'banish)
+    'guicursor'                 blink-cursor-...
+    :set titlestring=[t]        (setq frame-title-format [t])
+
+Highlighting text
+    Enable highlighting         M-x global-hi-lock-mode<cr>
+    Highlight [regex]           C-x w h [regex] <cr> [face] <cr>
+    Stop highlighting [regex]   C-x w r [regex] <cr>
