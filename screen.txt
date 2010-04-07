@@ -32,6 +32,8 @@ C-a A
     Renaming a window title.
 C-a N
     Show info about the current window.
+C-a k
+    Kill the current window.
 
 -------
 Regions
