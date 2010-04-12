@@ -1,3 +1,15 @@
 lsof
+
 netstat -ltnup
+    Shows ports
 mtr google.com
+    Shows the route
+
+----
+Logs
+----
+
+dmesg
+    Kernel logs
+/var/log/{messages,syslog}
+    Log files

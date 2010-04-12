@@ -1,0 +1,6 @@
+suse:
+    $ cat /etc/SuSE-release
+ubuntu:
+    ...
+all:
+    uname -a

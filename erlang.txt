@@ -1,4 +1,3 @@
-
 Loading modules
 ---------------
 
@@ -15,3 +14,50 @@ m()
     Shows loaded modules.
 
 Manual pages: erl, erlang, shell, code, c
+
+Processes
+---------
+
+processes()
+pid(A, B, C)
+process_info(Pid), process_info(Pid, backtrace)
+is_pid()
+is_process_alive(Pid)
+exit(Pid, kill)
+pid_to_list()
+erlang:process_display(LocalPid, backtrace)
+rpc:pinfo(Pid), rpc:pinfo(Pid, Item)
+registered(), whereis()
+global:registered_names(), global:whereis_name(Name).
+
+Ports
+-----
+
+erlang:ports()
+erlang:port_info(Port), erlang:port_info(Port, Item)
+is_port()
+erlang:port_to_list(Port)
+
+Nodes
+-----
+
+is_alive()
+    Returns true if the local node is alive
+node(), nodes(),
+node(Arg)
+    Returns the node where Arg is located. Arg can be a pid, a reference, or a
+    port
+nodes(Arg | [Arg]), Arg = visible | hidden | connected | this | known
+
+Diagnostic
+----------
+
+toolbar:start()
+erlang:get_stacktrace()
+    Get the stacktrace of the last exception in the calling process
+dtop:start, timer:sleep(5000).
+    top
+dtop:sort(mem)
+    Sort by memory usage
+sys:get_status(pid(0,187,0))
+    Get the gen_server's state
