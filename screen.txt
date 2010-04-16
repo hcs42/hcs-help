@@ -95,5 +95,17 @@ sessionname [name]
 shelltitle [title]
     Sets the default shell title
 
+--------
+screenrc
+--------
+
+shelltitle -
+    Default shell title: "-"
+defscrollback 10000
+    Default scrollback: 10000
+escape ^qq
+    Use C-q instead of C-a
+
+
 Vim window = screen region
 Vim buffer = screen window
