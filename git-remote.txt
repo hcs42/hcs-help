@@ -3,3 +3,4 @@ git remote prune <remotename>
 git fetch <remotename>
 git push <remotename> <branch>
 git push <remotename> :<branch>
+git branch -d -r <branch>

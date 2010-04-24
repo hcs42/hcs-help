@@ -1,6 +1,6 @@
 suse:
     $ cat /etc/SuSE-release
 ubuntu:
-    ...
+    $ lsb_release -a
 all:
-    uname -a
+    $ uname -a
