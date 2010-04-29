@@ -43,11 +43,20 @@ Nodes
 
 is_alive()
     Returns true if the local node is alive
-node(), nodes(),
+node(), nodes()
 node(Arg)
     Returns the node where Arg is located. Arg can be a pid, a reference, or a
     port
 nodes(Arg | [Arg]), Arg = visible | hidden | connected | this | known
+net_adm:ping(Node)
+
+dbg
+---
+
+dbg:tracer().
+dbg:p(all, call).
+dbg:tpl(Module, []).
+    Print all calls to the functions of Module.
 
 Diagnostic
 ----------
@@ -61,3 +70,11 @@ dtop:sort(mem)
     Sort by memory usage
 sys:get_status(pid(0,187,0))
     Get the gen_server's state
+
+Connecting to erlang nodes
+--------------------------
+
+erl -name <name of new node> \
+    -setcookie <same as the original node's cookie> \
+    -kernel <same kernel options as the original node> \
+    -remsh <name of the original node>
