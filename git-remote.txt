@@ -23,7 +23,7 @@ Fetch a branch
     git fetch <remotename> <branch>:remotes/<remotename>/<branch>
 Delete a branch
     git branch -d -r <branch>
-Fetch all branch
+Fetch all branches that are present in the remote repository
     git fetch <remotename>
-Delete branches that are not present in the remote repository
+Delete all branches that are not present in the remote repository
     git remote prune <remotename>
