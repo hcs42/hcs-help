@@ -1,0 +1,55 @@
+External links
+
+    1.
+        External hyperlinks, like Python__.
+
+        __ http://www.python.org/
+
+    2.
+        External hyperlinks, like Python_.
+
+        .. _Python: http://www.python.org/
+
+    3.
+        External hyperlinks, like `Python <http://www.python.org/>`_.
+
+Internal references:
+
+    1.
+        .. _label:
+
+        See :ref:`label`.
+
+    2.
+        .. _label:
+
+        See :ref:`text <label>`.
+
+    3. (works only within a page)
+
+        .. _label:
+
+        See text__
+
+        __ label_
+
+Headers:
+    - rst page title: =
+    - rst sections: -^"':
+    - py sections: ':
+
+Image:
+    .. image:: images/ball1.gif
+
+Code:
+    .. code-block:: sh
+
+Footnote:
+
+    There are imporant things [#important]_, which are...
+
+    .. rubric:: Footnotes
+
+    .. [#important] OK, it is not that important.
+       But still, it is important.
+

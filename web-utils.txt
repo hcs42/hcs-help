@@ -1,0 +1,7 @@
+URL shortener:
+    http://bit.ly/
+pastebin:
+    http://pastebin.com/ -- for private stuff
+    http://pastebin.org/ -- for collaborative editing
+What is my IP:
+    http://whatismyipaddress.com/

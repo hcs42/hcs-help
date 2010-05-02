@@ -1,0 +1,111 @@
+Directory structure
+    HEAD -- contains the name of the current branch
+    branches/ -- not used
+    config -- config file
+    description -- not used
+    hooks/ -- client and server side hooks
+    index -- index (=staging area) information
+    info/
+        exclude -- gitignore file
+        refs
+    objects/ -- database content
+    refs/ -- references to commits objects
+
+--------
+Commands
+--------
+
+git hash-object -w <file>
+echo <content> | git hash-object -w --stdin
+    Takes some data, stores it in the .git directory, and gives you back the
+    key the data is stored as.
+git cat-file -t <object>
+git cat-file -p <object>
+    Shows the type/content of the object.
+git update-index [--add] <filename>
+    Adds the given file to the index.
+git update-index [--add] --cacheinfo 100644 <object> <filename>
+    Adds an object to the index with the given file name.
+git write-tree
+    Creates a tree object from the index.
+git read-tree [--prefix=<prefix>/] <tree>
+    Reads a tree object into the index.
+echo <commit msg> | git commit-tree <tree> [-p <parentcommit>]
+    Creates a commit object.
+
+------------------
+Specifying objects
+------------------
+
+<commit>^{tree}
+    The tree object of <commit>
+
+-----------------------
+Internal representation
+-----------------------
+
+blob:
+    blob <content length>\0<content>
+commit:
+    commit <content length>\0<content>
+    <content> =
+        tree <sha of the tree>\n
+        [parent <sha of parent commit>\n ]*
+        author <info>\n
+        committer <info>\n\n
+        <commit msg>
+tree:
+    tree <content length>\0<content>
+    <content> = ?
+annotated tag:
+    tag <content length>\0<content>
+    <content> =
+        object <commit>\n
+        type commit\n
+        tag <tag>\n
+        tagger Csaba Hoch <csaba.hoch@gmail.com> 1271011498 +0200\n\n
+        <commit msg>
+
+----------
+References
+----------
+
+git update-ref refs/heads/master <commit>
+git update-ref refs/tags/1.0 <commit>
+echo "1a410efbd13591db07496601ebc7a059dd55cfe9" > .git/refs/heads/master
+    Update a reference.
+git symbolic-ref HEAD refs/heads/master
+echo 'ref: refs/heads/master' > .git/HEAD
+    Update the HEAD.
+
+------
+Python
+------
+
+Imports:
+    import hashlib
+    import zlib
+    import os
+    import sys
+Storing an object:
+    content = "what is up, doc?"
+    header = "blob %s\0" % (len(content),)
+    store = header + content
+    sha1 = hashlib.sha1(store).hexdigest()
+    zlib_content = zlib.compress(store)
+    dirpath = '.git/objects/%s' % (sha1[0:2],)
+    path = '%s/%s' % (dirpath, sha1[2:])
+    if not os.path.exists(dirpath): os.makedirs(dirpath)
+
+    f = open(path, 'w')
+    f.write(zlib_content)
+    f.close()
+Reading an object:
+    sha1 = "bd9dbf5aae1a3862dd1526723246b20206e5fc37"
+    dirpath = '.git/objects/%s' % (sha1[0:2],)
+    path = '%s/%s' % (dirpath, sha1[2:])
+    f = open(path, 'r')
+    zlib_content = f.read()
+    f.close()
+    content = zlib.decompress(zlib_content)
+
