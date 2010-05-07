@@ -1,0 +1,6 @@
+/etc/apt/apt.conf:
+    Acquire::http::Proxy "http://<proxy name>:<port>";
+sudo apt-get install virtualbox-ose-guest-{dkms,utils,x11}
+System > Preferences > Power Management > "Never" everywhere
+System > Preferences > Screensaver > [ ] Activate screensaver, [ ] Lock when screensaver
+System > Administration > Login screen > Log in as netsim automatically
