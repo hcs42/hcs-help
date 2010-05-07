@@ -78,3 +78,5 @@ erl -name <name of new node> \
     -setcookie <same as the original node's cookie> \
     -kernel <same kernel options as the original node> \
     -remsh <name of the original node>
+
+The HOST environment variable has to be set.
