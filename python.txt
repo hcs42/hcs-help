@@ -1,3 +1,45 @@
+----
+Date
+----
+
+Datetime representations:
+    timestamp (float) -- seconds since the epoch (tz independent)
+    struct_time -- a sequence of 9 integers (tz naive)
+    datetime -- an object (tz naive [1])
+
+Functions for getting the current datetime:
+    time.gmtime() -> current struct_time in UTC
+    time.localtime() -> current struct_time in local time
+    datetime.utcnow() -> current datetime in UTC
+    datetime.now() -> current datetime in local time
+
+Conversion functions:
+    time.gmtime(timestamp) -> struct_time in UTC
+    time.localtime(timestamp) -> struct_time in local time
+    calendar.timegm(struct_time) in UTC -> timestamp
+    time.mktime(struct_time) in local time -> timestamp
+    datetime.utcfromtimestamp(timestamp) -> datetime in UTC
+    datetime.fromtimestamp(timestamp) -> datetime in local time
+    datetime.timetuple(self) -> struct_time
+
+Printing functions:
+    time.ctime(timestamp) -> str
+    time.asctime(struct_time) -> str
+    time.strftime(format, struct_time) -> str
+    datetime.isoformat(self) -> str
+    datetime.ctime(self) -> str
+    datetime.strftime(self) -> str
+
+Parsing functions:
+    time.strptime(string, format) -> struct_time
+    datetime.strptime(string, format) -> datetime
+
+[1] There is tz aware `datetime` as well, but I don't deal with that here.
+
+----
+Misc
+----
+
 output
     output = subprocess.Popen(["ls", "/"], stdout=subprocess.PIPE).communicate()[0]
 
