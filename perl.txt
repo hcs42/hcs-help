@@ -1,0 +1,23 @@
+Array
+-----
+
+Length of array
+    scalar a
+    $#a + 1
+
+File handling
+-------------
+
+Iterate over lines of a file:
+
+    open(FILE, "x");
+    while (<FILE>) {
+        print $_;
+    }
+    close(FILE);
+
+Read the file into an array:
+
+    open(FILE, "x");
+    @lines = <FILE>;
+    close(FILE);

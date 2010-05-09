@@ -1,0 +1,7 @@
+Options:
+    --prefix
+    -n, --dry-run
+    -v, --verbose
+
+Examples:
+    easy_install 'sphinx==0.6.5'
