@@ -1,0 +1,8 @@
+Creating a swap file on the fly:
+--------------------------------
+
+su -
+dd if=/dev/zero of=swapfile bs=1024 count=132207
+chmod 600 swapfile
+mkswap swapfile
+swapon swapfile

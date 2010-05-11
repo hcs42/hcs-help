@@ -79,4 +79,7 @@ erl -name <name of new node> \
     -kernel <same kernel options as the original node> \
     -remsh <name of the original node>
 
+name of the original node:
+    short names: node@host
+
 The HOST environment variable has to be set.

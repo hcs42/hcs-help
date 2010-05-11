@@ -1,7 +1,13 @@
 lsof
 
+-------
+Network
+-------
+
 netstat -ltnup
     Shows ports
+netcat -l <host> <port>
+    Print data that arrives to a port
 mtr google.com
     Shows the route
 
