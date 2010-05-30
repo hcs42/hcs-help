@@ -1,0 +1,24 @@
+Selectors:
+    $('div.myclass')
+    $('div.myclass', node)
+    $('#myid')
+    $('[id=myid]')
+
+Attributes:
+    jq.attr(name)
+    jq.attr(name, newvalue)
+    textarea.val()
+    jq.html(newhtmlcontent);
+
+Event handling:
+    editButton.unbind('click');
+    editButton.bind('click', function() { ... });
+
+Loops:
+    jq.each(function(index) {
+        window.alert(this);
+    }).
+
+    x = jq.map(function(index) {
+        return this + 1;
+    }).

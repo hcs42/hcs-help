@@ -1,0 +1,2 @@
+Embedding into HTML:
+    <link rel=stylesheet href="mycss.css" type="text/css">

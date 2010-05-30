@@ -14,3 +14,6 @@ History of a file (that has been renamed):
 
 GC:
     git repack -a -d -f --depth=250 --window=250
+
+rev-list:
+    git rev-list HEAD~10..HEAD

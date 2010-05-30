@@ -36,16 +36,43 @@ Parsing functions:
 
 [1] There is tz aware `datetime` as well, but I don't deal with that here.
 
+----------
+Subprocess
+----------
+
+Reading the output
+    output=`mycmd myarg`
+    ==>
+    output = Popen(["mycmd", "myarg"], stdout=PIPE).communicate()[0]
+
+Pipeline
+    output=`dmesg | grep hda`
+    ==>
+    p1 = Popen(["dmesg"], stdout=PIPE)
+    p2 = Popen(["grep", "hda"], stdin=p1.stdout, stdout=PIPE)
+    output = p2.communicate()[0]
+
+Command as a string
+    os.system("mycmd myarg")
+    ==>
+    subprocess.call("mycmd myarg", shell=True)
+
+System call
+    sts = os.system("mycmd myarg")
+    ==>
+    p = Popen("mycmd myarg", shell=True)
+    sts = os.waitpid(p.pid, 0)[1]
+
 ----
 Misc
 ----
 
-output
-    output = subprocess.Popen(["ls", "/"], stdout=subprocess.PIPE).communicate()[0]
+Temporary file
+    fd, filename = tempfile.mkstemp([suffix, prefix])
+    os.close(fd)
 
-tempfile
-    tempfile.mkstemp([suffix, prefix]) -> filehandle, filename
-    tempfile.mkdtemp([suffix, prefix]) -> dirname
+Temporary directory
+    dirname = tempfile.mkdtemp([suffix, prefix])
 
 abspath, basename, pathname:
 

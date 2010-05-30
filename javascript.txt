@@ -1,0 +1,50 @@
+HTML
+----
+
+Embedding JavaScript into HTML
+    <script type="text/javascript" language="JavaScript">window.alert("Hello");</script>
+    <script type="text/javascript" language="JavaScript" src="/hello.js"></script>
+    <a href="javascript:window.alert('Hello')">Hello</a>
+    <body onload="window.alert('Hello');">
+    <span onclick="window.alert('Hello');">
+
+Events: onLoad, onClick, onMouseOver, onFocus
+
+CSS
+---
+
+Hiding an element
+    document.getElementById("id").style.display = "block"
+    document.getElementById("id").style.display = "none"
+
+Misc
+    document.getElementById("id").className = "something"
+    document.getElementById("id").style.fontWeight = "strong"
+
+DOM
+---
+
+Children
+    n.childNodes //returns the text nodes as well
+    n.getElementsByTagName('div') //traverses all descendants
+    n.appendChild(ch)
+    n.removeChild(ch)
+    n.insertBefore(chnew, chold)
+    n.insertBefore(chnew, chold)
+
+New nodes
+    document.createElement('div')
+    document.createTextNode("hello")
+
+Misc
+    n.setAttribute("href", "http://...")
+    n.innerHTML = 'hello'
+
+Array
+-----
+
+    a.length
+    a[i]
+    shift, unshift
+    pop, push
+    http://www.hunlock.com/blogs/Mastering_Javascript_Arrays
