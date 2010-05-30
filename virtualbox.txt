@@ -1,6 +1,12 @@
-/etc/apt/apt.conf:
-    Acquire::http::Proxy "http://<proxy name>:<port>";
-sudo apt-get install virtualbox-ose-guest-{dkms,utils,x11}
-System > Preferences > Power Management > "Never" everywhere
-System > Preferences > Screensaver > [ ] Activate screensaver, [ ] Lock when screensaver
-System > Administration > Login screen > Log in as netsim automatically
+Installation
+
+    /etc/apt/apt.conf:
+        Acquire::http::Proxy "http://<proxy name>:<port>";
+    sudo apt-get install virtualbox-ose-guest-{dkms,utils,x11}
+    System > Preferences > Power Management > "Never" everywhere
+    System > Preferences > Screensaver > [ ] Activate screensaver, [ ] Lock when screensaver
+    System > Administration > Login screen > Log in as netsim automatically
+
+Mount
+
+    mount -t vboxsf -o uid=1000,gid=1000 <shared_folder_name> <mount_point>
