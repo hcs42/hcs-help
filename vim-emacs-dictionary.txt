@@ -143,6 +143,7 @@ Blockwise visual mode / rectangle selection:
     {bv}c[text]<esc>            C-x r t [text] 
 
 Numbers in registers:
+    <c-a>, <c-x>                 Increment/decrement number
     :let @[reg]=[num]            M-[num] C-x r n [reg]
     :let @[reg]=@[reg]+[num]<cr> M-[num] C-x r + [reg]
     "[reg]p                      C-x r i [reg]
