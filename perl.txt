@@ -1,9 +1,44 @@
+Data types
+----------
+
+    $x = 1      # scalar
+    $rx = \$x   # scalar reference
+    $$rx        # dereferenced scalar reference
+
+    @a = (1,2)  # array
+    $ra = [1,2] # array reference
+    $ra = \@a   # array reference
+    @$ra        # dereferenced array reference
+    $$ra[1]     # dereferenced array reference element
+    $ra->[1]    # dereferenced array reference element
+
+    %h = (1=>2) # hash
+    $rh = \%h   # hash reference
+    %$rh        # dereferenced hash reference
+    $$rh{1}     # dereferenced hash reference element
+    $rh->{1}    # dereferenced hash reference element
+
+One-liners
+----------
+
+    perl -pe '$\="\n"'
+
 Array
 -----
 
 Length of array
-    scalar a
+    (scalar a)
     $#a + 1
+
+Adding elements
+    push @a, 1, 2, 3
+
+
+Hash
+----
+
+Element testing:
+    exists($h{"key"})
 
 File handling
 -------------
