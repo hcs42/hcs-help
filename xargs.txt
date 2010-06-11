@@ -1,0 +1,1 @@
+ ... | xargs -d ' ' -I XX dirname XX

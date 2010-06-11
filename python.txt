@@ -63,9 +63,9 @@ System call
     p = Popen("mycmd myarg", shell=True)
     sts = os.waitpid(p.pid, 0)[1]
 
-----
-Misc
-----
+-------------
+File handling
+-------------
 
 Temporary file
     fd, filename = tempfile.mkstemp([suffix, prefix])
@@ -75,7 +75,12 @@ Temporary directory
     dirname = tempfile.mkdtemp([suffix, prefix])
 
 abspath, basename, pathname:
-
     os.path.abspath(path)
     os.path.basename(path)
     os.path.dirname(path)
+
+Unix commands
+    mkdir -p     os.makedirs(path)
+    pwd          os.getcwd()
+    cd           os.chdir(path)
+    ls           os.listdir(path)

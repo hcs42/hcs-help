@@ -48,3 +48,8 @@ Array
     shift, unshift
     pop, push
     http://www.hunlock.com/blogs/Mastering_Javascript_Arrays
+
+Regexp
+------
+
+    'aabb'.replace(/a+/, '$1$1')   // 'aaaabb'
