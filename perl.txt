@@ -6,22 +6,27 @@ Data types
     $$rx        # dereferenced scalar reference
 
     @a = (1,2)  # array
-    $ra = [1,2] # array reference
     $ra = \@a   # array reference
+    $ra = [1,2] # array reference
     @$ra        # dereferenced array reference
     $$ra[1]     # dereferenced array reference element
     $ra->[1]    # dereferenced array reference element
 
     %h = (1=>2) # hash
     $rh = \%h   # hash reference
+    $rh = {1=>2} # hash reference
     %$rh        # dereferenced hash reference
     $$rh{1}     # dereferenced hash reference element
     $rh->{1}    # dereferenced hash reference element
 
-One-liners
-----------
+String
+------
 
-    perl -pe '$\="\n"'
+    "\x20"
+
+Misc
+    lc, uc, ucfirst, join
+    substr($s, from, len)
 
 Array
 -----
@@ -32,20 +37,37 @@ Length of array
 
 Adding elements
     push @a, 1, 2, 3
+    push, pop, shift, unshift, splice
 
+Misc
+    @a[1..3]
+    map {$_ * $_} @a   # square numbers
+    sort, reverse
 
 Hash
 ----
 
-Element testing:
     exists($h{"key"})
+    delete($h{"key"})
+
+Regular expressions
+-------------------
+
+Substitution:
+
+    $s =~ s/a/b/g
+
+Input-output
+------------
+
+    $line = <STDIN>
 
 File handling
 -------------
 
 Iterate over lines of a file:
 
-    open(FILE, "x");
+    open(FILE, "filename");
     while (<FILE>) {
         print $_;
     }
@@ -53,6 +75,11 @@ Iterate over lines of a file:
 
 Read the file into an array:
 
-    open(FILE, "x");
+    open(FILE, "filename");
     @lines = <FILE>;
     close(FILE);
+
+Misc
+----
+
+    $, = ","    # print commas between elements

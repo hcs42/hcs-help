@@ -1,0 +1,6 @@
+Removing \n characters
+    perl -pe chomp
+    perl -pe 's/\n//'
+    perl -pe '$_ = substr($_, 0, length() - 1)';
+
+
