@@ -1,0 +1,5 @@
+google docs edit --title TITLE
+google docs delete --title TITLE
+google docs get --title TITLE
+
+google calendar add TEXT

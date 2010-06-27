@@ -79,6 +79,12 @@ Read the file into an array:
     @lines = <FILE>;
     close(FILE);
 
+Writing into a file:
+
+    open(FILE, ">filename");
+    print FILE "Hello";
+    close(FILE);
+
 Misc
 ----
 
