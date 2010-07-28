@@ -85,6 +85,17 @@ Writing into a file:
     print FILE "Hello";
     close(FILE);
 
+Checking whether a file exists:
+
+    if (-e $file)
+
+Directories:
+
+    use File::Path 'rmtree';
+    rmtree($dir);
+
+    mkdir($dir);
+
 Misc
 ----
 

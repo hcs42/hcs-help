@@ -3,3 +3,5 @@ google docs delete --title TITLE
 google docs get --title TITLE
 
 google calendar add TEXT
+
+google picasa post --title TITLE PATH_TO_PHOTOS

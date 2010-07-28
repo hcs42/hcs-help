@@ -1,4 +1,7 @@
-Becsatlakozás Ubuntura, létező desktopra:
+Creating a server for an existing desktop:
 $ x11vnc -usepw -display :0
 
-(Lásd még: H notes)
+Efficient encoding:
+$ xtightvncviewer -compresslevel 9 -quality 4 -encodings tight localhost:1
+
+(See also: H notes)

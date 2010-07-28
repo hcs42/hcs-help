@@ -100,9 +100,9 @@ screenrc
 --------
 
 shelltitle -
-    Default shell title: "-"
 defscrollback 10000
-    Default scrollback: 10000
+startup_message off
+
 escape ^qq
     Use C-q instead of C-a
 

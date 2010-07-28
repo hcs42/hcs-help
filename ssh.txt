@@ -8,6 +8,12 @@ Forward <remote host>:2222 to localhost:22
 Forward localhost:2221 to localhost:22
     $ ssh -L 2221:localhost:22 localhost
 
+
+Specific use cases:
+    ssh -L 5223:talk.google.com:443 GW
+    ssh -L 1993:imap.googlemail.com:993 GW
+    ssh -L 5901:attis.homeunix.org:5901 GW
+
 Without password
 ----------------
 

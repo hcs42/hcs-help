@@ -12,3 +12,10 @@ Template
       <body>
       </body>
     </html>
+
+Forms
+
+    <form action="x.php" method="get">
+    <input type="text" name="term" />
+    <input type="submit" value="Search on the heap" />
+    </form>
