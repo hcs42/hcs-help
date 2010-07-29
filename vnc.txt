@@ -1,5 +1,5 @@
 Creating a server for an existing desktop:
-$ x11vnc -usepw -display :0
+$ x11vnc -usepw -display :0 -shared -forever
 
 Efficient encoding:
 $ xtightvncviewer -compresslevel 9 -quality 4 -encodings tight localhost:1

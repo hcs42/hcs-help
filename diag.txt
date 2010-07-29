@@ -11,6 +11,16 @@ netcat -l <host> <port>
 mtr google.com
     Shows the route
 
+-------
+tcpdump
+-------
+
+tcpdump -i eth0 -s 10000 -w <output file> host <ip address>
+    Capturing into a file
+tcpdump -r <input file>
+    Work from a file
+
+
 ----
 Logs
 ----
