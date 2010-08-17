@@ -6,6 +6,8 @@ Network
 
 netstat -ltnup
     Shows ports
+netstat -an
+    netstat on Solaris
 netcat -l <host> <port>
     Print data that arrives to a port
 mtr google.com
