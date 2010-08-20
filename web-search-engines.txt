@@ -1,0 +1,16 @@
+l
+    http://www.ldoceonline.com/search/?q=%s
+eh
+    http://szotar.sztaki.hu/dict_search.php?L=ENG:HUN:EngHunDict&W=%s&T=1
+he
+    http://szotar.sztaki.hu/dict_search.php?L=HUN:ENG:EngHunDict&W=%s&T=1
+w
+    http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s
+wh
+    http://hu.wikipedia.org/w/index.php?title=Special:Search&search=%s
+wt
+    http://en.wiktionary.org/w/index.php?title=Special:Search&search=%s
+ih
+    http://isohunt.com/torrents/%s
+y
+    http://www.youtube.com/results?search_query=%s&page={startPage?}&utm_source=opensearch
