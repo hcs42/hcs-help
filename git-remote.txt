@@ -21,6 +21,7 @@ Using not own remote repository
 
 Fetch a branch
     git fetch <remotename> <branch>:remotes/<remotename>/<branch>
+    Gfr <remotename> <branch>
 Delete a branch
     git branch -d -r <remotename>/<branch>
 Fetch all branches that are present in the remote repository
