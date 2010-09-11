@@ -21,6 +21,7 @@ Conversion functions:
     datetime.utcfromtimestamp(timestamp) -> datetime in UTC
     datetime.fromtimestamp(timestamp) -> datetime in local time
     datetime.timetuple(self) -> struct_time
+    datetime.datetime(*list(struct_time)[0:6]) -> datetime
 
 Printing functions:
     time.ctime(timestamp) -> str
@@ -84,3 +85,13 @@ Unix commands
     pwd          os.getcwd()
     cd           os.chdir(path)
     ls           os.listdir(path)
+
+----------
+Reflection
+----------
+
+getattr(a,'hello')
+hasattr(a,'hello')
+sys.modules[__name__].main()
+eval()
+execfile()

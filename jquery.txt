@@ -3,6 +3,7 @@ Selectors:
     $('div.myclass', node)
     $('#myid')
     $('[id=myid]')
+    $('[id|=myid]') //"myid" shall be the prefix
 
 Attributes:
     jq.attr(name)

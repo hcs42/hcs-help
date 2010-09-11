@@ -1,1 +1,2 @@
- ... | xargs -d ' ' -I XX dirname XX
+... | xargs -d ' ' -I XX dirname XX
+find -type f -print0 | xargs -0 chmod u+rw

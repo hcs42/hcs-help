@@ -1,0 +1,9 @@
+v
+    (g)view -
+v_start_server [<servername>]
+    Starts a vim server. <servername> is "main" by default.
+v <file>
+v <servername> <files>...
+    Edits the given files in the given server
+vm <files>
+    Equivalent to "g main <files>"
