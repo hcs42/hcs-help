@@ -50,12 +50,29 @@ Hash
     exists($h{"key"})
     delete($h{"key"})
 
+Loop
+----
+
+    foreach (@a) { print "$_"; }
+    foreach my $item (@a) { print "$item"; }
+    foreach (keys %h) { print "$_"; }
+    foreach my $key (keys %h) { print "$key\n"; }
+
 Regular expressions
 -------------------
 
 Substitution:
 
     $s =~ s/a/b/g
+
+
+Functions
+---------
+
+sub f($$) {
+    my ($a, $b) = @_;
+    ...
+}
 
 Input-output
 ------------
@@ -100,8 +117,20 @@ System
 ------
 
     system "mkdir d"
+    system("mkdir","d")
+    rename($old, $new)
+
+Date and time
+-------------
+
+    localtime() -> ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)
 
 Misc
 ----
 
     $, = ","    # print commas between elements
+
+Documentation
+-------------
+
+perldoc -f <builtin function>

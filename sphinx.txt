@@ -53,3 +53,44 @@ Footnote:
     .. [#important] OK, it is not that important.
        But still, it is important.
 
+Reference definitions:
+
+    # TEXT = <tickword>
+    # TARGETTEXT = <tickword>
+    # TARGET = <tickword>
+    # ETARGET = http://...
+    # ITARGET = <tickword>
+    # ITARGET2 = str
+
+    ETARGET
+
+    ITARGET_
+
+    TEXT__
+    __ ETARGET
+
+    TEXT__
+    __ ITARGET_
+
+    TARGETTEXT_
+    .. _TARGETTEXT: ETARGET
+
+    TARGETTEXT_
+    .. _TARGETTEXT: ITARGET_
+
+    `TEXT <ETARGET>`_
+
+    :ref:`TEXT <ITARGET2>`
+
+Targets:
+
+    .. _ITARGET:
+
+Maybe a bug:
+
+    .. _`x y`:
+
+    xy
+    --
+
+    :ref:`a <x y>`

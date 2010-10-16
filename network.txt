@@ -1,3 +1,7 @@
+Setting a static IP address:
+    ifconfig eth0 192.168.0.2 up
+    route add default gw 192.168.0.1
+
 Forwarding 8080 to 80:
     iptables -t nat -A OUTPUT -d localhost -p tcp --dport 80 -j REDIRECT --to-ports 8080
     iptables -t nat -A OUTPUT -d 192.168.1.101 -p tcp --dport 80 -j REDIRECT --to-ports 8080
@@ -9,3 +13,9 @@ Listing rules:
 Deleting a rule:
     iptables -t nat -D [chain] 1
     (chain is e.g. OUTPUT)
+
+Network sharing:
+    modprobe ip_tables
+    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE --source 192.168.0.11/255.255.255.0
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+

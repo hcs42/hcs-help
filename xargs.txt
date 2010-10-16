@@ -1,2 +1,6 @@
 ... | xargs -d ' ' -I XX dirname XX
+... | xargs -n1 dirname
+find -type d -print0 | xargs -0 chmod u+rwx
+find -type d -print0 | xargs -0 chmod go+rx
 find -type f -print0 | xargs -0 chmod u+rw
+find -type f -print0 | xargs -0 chmod go+rw

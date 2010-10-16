@@ -1,2 +1,4 @@
 Screen capture
     import file.jpg
+fsck
+    sudo touch /forcefsck

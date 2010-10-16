@@ -54,9 +54,10 @@ Pipeline
     output = p2.communicate()[0]
 
 Command as a string
-    os.system("mycmd myarg")
-    ==>
     subprocess.call("mycmd myarg", shell=True)
+
+Command as a list
+    subprocess.call(["mycmd", "myarg"])
 
 System call
     sts = os.system("mycmd myarg")

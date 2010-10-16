@@ -1,12 +1,14 @@
 Shortcuts in /a/cp/bash/bashrc:
   Gh: git help
   Gc, GC: git commit
+  Gcf: git commit -F hcs/gitcommit
   Gco: git checkout
   Gb: git branch
-  Gp: pull, Gpu: push, GPU: smart push
   Gs: git status
-  Gd, GD: git diff
+  Gri: git rebase -i
   Gt: gitk &
+  Gfr: git fetch remote (see H git-remote)
+  Gcp: git cherry-pick
 
 How to...
   revert: git checkout <branch> <file>

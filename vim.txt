@@ -7,3 +7,4 @@ v <servername> <files>...
     Edits the given files in the given server
 vm <files>
     Equivalent to "g main <files>"
+v_edit <file>

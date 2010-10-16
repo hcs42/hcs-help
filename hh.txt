@@ -1,0 +1,17 @@
+Replying to UMS post
+
+    ------------------------------------------------------------
+    BODY
+
+    [note Parent post: http://heapkeeper-heap.github.com/hh/thread_XXX.html#post-summary-hh-XXX]
+    ------------------------------------------------------------
+
+Commit reference
+
+    abcdef1 [1]
+
+    [1] "commit headline", 2010-01-01, Attila Istvan Nagy
+
+Commit email
+
+    Subject: "commit headline" (2010-01-01 abcdef1)
