@@ -1,0 +1,18 @@
+Configuring a new machine that is not my primary desktop
+--------------------------------------------------------
+
+# Getting hcs-utils
+git config --global user.name "Csaba Hoch"
+git config --global user.email csaba.hoch@gmail.com
+ssh-keygen
+cat .ssh/id_rsa.pub 
+# Copy this into:
+#     https://github.com/account ->
+#     SSH public keys ->
+#     "add another public key"
+git clone git@github.com:hcs42/hcs-utils.git
+
+echo "export PATH=/home/hcs/hcs-utils/bin:$PATH" >> ~/.bashrc
+echo ". /home/hcs/hcs-utils/bin/Bashrc" >> ~/.bashrc
+ln -s hcs-utils/vim/vimfiles/ .vim
+scp .vimrc HOST:.

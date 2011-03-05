@@ -102,3 +102,10 @@ hasattr(a,'hello')
 sys.modules[__name__].main()
 eval()
 execfile()
+
+----
+Misc
+----
+
+python -m SimpleHTTPServer 8080
+s.splitlines()

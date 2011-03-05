@@ -1,10 +1,20 @@
-v
-    (g)view -
-v_start_server [<servername>]
-    Starts a vim server. <servername> is "main" by default.
-v <file>
-v <servername> <files>...
-    Edits the given files in the given server
-vm <files>
-    Equivalent to "g main <files>"
-v_edit <file>
+Environment variables:
+    $HCS_VIM
+        Starts the preferred version of vim
+    $HCS_VIM_F
+        Starts the preferred version of vim that does not fork
+Commands:
+    v-
+        Starts a vim that reads from stdin
+    v_start_server [<servername>]
+        Starts a vim server. <servername> is "main" by default.
+    v <file>...
+        Edits the given files
+    vs <servername> <file>...
+        Edits the given files in the given server
+    vm <file>...
+        Edits the given files in the "main" server
+    vs_edit <servername> <file>...
+        Edits the given named file in the given server
+    vm_edit <name>
+        Edits the given named file in the "main" server

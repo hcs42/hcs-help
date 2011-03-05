@@ -1,0 +1,24 @@
+Basics
+------
+
+$ sqlite3 sqlite.db "<cmd>"
+
+Show
+----
+
+Database level
+    .tables
+
+Table level
+    .schema tables
+    pragma table_info(ew_wdict);
+
+Row level
+    select * from ew_wdict;
+
+
+Modify
+------
+
+alter table ew_wdict add column deleted integer;
+update ew_wdict set date_added='2011-01-01' where id=1;

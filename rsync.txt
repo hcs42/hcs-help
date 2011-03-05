@@ -1,0 +1,8 @@
+rsync -rulptvE src_dir/ user@host:target_dir/
+
+Other options:
+--delete
+--exclude-from=$EXCLUDE_FILE 
+--backup --backup-dir="$BACKUP_DIR"
+--suffix ".$DATE_TAG"
+--size-only
