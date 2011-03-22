@@ -1,0 +1,61 @@
+General
+-------
+
+TAB
+    Cycle global visibility
+C-c C-v
+    View TODO tree
+
+Headings
+--------
+
+M-RET
+    New heading
+M-left / M-right
+    Modify heading level
+M-S-left / M-S-right
+    Modify heading level for subtree
+C-c C-u
+    Go up
+C-c C-p / C-c C-n
+    Previous/next
+M-S-up / M-S-down
+    Move subtree up/down
+S-left, S-right
+    Set TODO/DONE state
+
+Time
+----
+
+C-c .
+    Timestamp
+S-up / S-down
+    1 ... later/earlier
+S-right / S-left
+    1 day later/earlier
+
+Table
+-----
+
+C-c C-c
+    Align
+Tab / S-Tab
+    Next/previous field
+RET
+    Next row
+S-RET
+    Copy field from above
+C-space
+    Empty cell
+M-left, M-right
+    Move column
+M-S-left / M-S-right
+    Delete/add column
+M-up, M-down
+    Move row
+M-S-up / M-S-down
+    Delete/add row
+C-c -
+    Insert hline
+
+

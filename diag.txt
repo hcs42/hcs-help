@@ -1,5 +1,3 @@
-lsof
-
 -------
 Network
 -------
@@ -22,6 +20,13 @@ tcpdump -i eth0 -s 10000 -w <output file> host <ip address>
 tcpdump -r <input file>
     Work from a file
 
+
+----------
+Open files
+----------
+
+lsof | grep <filename>
+fuser <filename>
 
 ----
 Logs
