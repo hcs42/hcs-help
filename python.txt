@@ -80,6 +80,7 @@ abspath, basename, pathname:
     os.path.abspath(path)
     os.path.basename(path)
     os.path.dirname(path)
+    os.path.normpath(path)
 
 Tests:
     -e: os.path.exists
@@ -102,6 +103,13 @@ hasattr(a,'hello')
 sys.modules[__name__].main()
 eval()
 execfile()
+
+----
+wget
+----
+
+import urllib2
+response = urllib2.urlopen('http://python.org/').read()
 
 ----
 Misc

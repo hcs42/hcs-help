@@ -7,7 +7,10 @@ Show
 ----
 
 Database level
+    .dump
+    .databases
     .tables
+    .tables ?PATTERN?
 
 Table level
     .schema tables
@@ -15,6 +18,7 @@ Table level
 
 Row level
     select * from ew_wdict;
+    (echo ".mode column"; echo ".header on"; echo "select * from ew_wdict;") | sqlite3 sqlite.db
 
 
 Modify
@@ -22,3 +26,8 @@ Modify
 
 alter table ew_wdict add column deleted integer;
 update ew_wdict set date_added='2011-01-01' where id=1;
+
+Types
+-----
+    
+text, integer, real, blob, null

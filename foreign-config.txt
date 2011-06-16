@@ -15,4 +15,10 @@ git clone git@github.com:hcs42/hcs-utils.git
 echo "export PATH=/home/hcs/hcs-utils/bin:$PATH" >> ~/.bashrc
 echo ". /home/hcs/hcs-utils/bin/Bashrc" >> ~/.bashrc
 ln -s hcs-utils/vim/vimfiles/ .vim
-scp .vimrc HOST:.
+
+Setting the hostname (in Debian/Ubuntu):
+    (see also http://goo.gl/I6Knz)
+    hostname <HOSTNAME>
+    vim /etc/hostname # modify to <HOSTNAME>
+    /etc/init.d/hostname.sh start
+    vim /etc/hosts # add "127.0.1.1 <HOSTNAME>"
