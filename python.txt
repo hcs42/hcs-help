@@ -81,11 +81,17 @@ abspath, basename, pathname:
     os.path.basename(path)
     os.path.dirname(path)
 
+Tests:
+    -e: os.path.exists
+    -d: os.path.isdir
+    -f: os.path.isfile
+
 Unix commands
     mkdir -p     os.makedirs(path)
     pwd          os.getcwd()
     cd           os.chdir(path)
     ls           os.listdir(path)
+    find         os.path.walk(path, visit_fun, arg)
 
 ----------
 Reflection

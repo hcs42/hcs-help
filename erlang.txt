@@ -83,3 +83,9 @@ name of the original node:
     short names: node@host
 
 The HOST environment variable has to be set.
+
+Compiling an OTP module
+-----------------------
+
+erlc +debug_info -o ../ebin -I ../include ssl_manager.erl 
+
