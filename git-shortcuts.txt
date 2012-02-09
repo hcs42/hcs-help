@@ -1,0 +1,11 @@
+Shortcuts in /a/cp/bash/bashrc:
+  Gh: git help
+  Gc, GC: git commit
+  Gcf: git commit -F hcs/gitcommit
+  Gco: git checkout
+  Gb: git branch
+  Gs: git status
+  Gri: git rebase -i
+  Gt: gitk &
+  Gfr: git fetch remote (see H git-remote)
+  Gcp: git cherry-pick

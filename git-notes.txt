@@ -1,8 +1,18 @@
-Things to try out:
-    git add -i
-    git bundle
-    git bisect run <program>
-    git cherry
+Revert
+    git checkout <branch> <file>
+
+cat
+    git show <branch>:<filename (path from root)>
+
+ls
+    git ls-files
+
+Stash
+    git stash; ...; git stash apply
+
+Setup:
+      git config --global user.name "Csaba Hoch"
+      git config --global user.email csaba.hoch@gmail.com
 
 Starting the git server daemon:
     git daemon --reuseaddr --verbose --base-path=/a/public/git_dirs \
@@ -12,7 +22,7 @@ Starting the git server daemon:
 History of a file (that has been renamed):
     git whatchanged -M -- path/filename1 path/filename2
 
-GC:
+Garbage collection:
     git repack -a -d -f --depth=250 --window=250
 
 rev-list:

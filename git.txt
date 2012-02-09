@@ -1,22 +1,17 @@
-Shortcuts in /a/cp/bash/bashrc:
-  Gh: git help
-  Gc, GC: git commit
-  Gcf: git commit -F hcs/gitcommit
-  Gco: git checkout
-  Gb: git branch
-  Gs: git status
-  Gri: git rebase -i
-  Gt: gitk &
-  Gfr: git fetch remote (see H git-remote)
-  Gcp: git cherry-pick
+-------
+General
+-------
 
-How to...
-  revert: git checkout <branch> <file>
-  cat: git show <branch>:<filename>
-  ls: git ls-files
-  stash: git stash; ...; git stash apply
-  set up:
-      git config --global user.name "Csaba Hoch"
-      git config --global user.email csaba.hoch@gmail.com
+git-notes
+git-internals
+git-shortcuts
 
-See also: git-*
+--------------
+Command groups
+--------------
+
+git-bisect
+git-log
+git-patch
+git-rebase
+git-remote
