@@ -1,0 +1,40 @@
+Recording
+---------
+
+From microphone:
+
+    arecord -f cd nurtureshock.wav
+
+Conversion
+----------
+
+wav > ogg
+    
+    ffmpeg -i in.wav -acodec vorbis -aq 60 out.ogg
+    oggenc in.wav -o out.ogg
+
+wav > mp3
+
+    ffmpeg -i in.wav -ab 128k -ac 1 out.mp3
+
+Manipulation
+------------
+
+mono
+
+    ffmpeg -i input.mp3 -ac 1 output.mp3
+
+concatenate wav
+
+    sox in1.wav in2.wav in3.wav out.wav
+
+cut ogg or mp3
+
+    mp3splt in.ogg 1.0 2.0 # from 60 sec to 120 sec
+    mp3splt in.mp3 1.0 2.0 # from 60 sec to 120 sec
+
+Documentation
+-------------
+
+    http://howto-pages.org/ffmpeg/
+    http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs
