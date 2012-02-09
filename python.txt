@@ -53,6 +53,12 @@ Pipeline
     p2 = Popen(["grep", "hda"], stdin=p1.stdout, stdout=PIPE)
     output = p2.communicate()[0]
 
+Echo into process
+    echo text | mycmd
+    ==>
+    p = subprocess.Popen(['mycmd'], stdin=PIPE)
+    p.communicate('text')
+    
 Command as a string
     subprocess.call("mycmd myarg", shell=True)
 
@@ -93,6 +99,36 @@ Unix commands
     cd           os.chdir(path)
     ls           os.listdir(path)
     find         os.path.walk(path, visit_fun, arg)
+
+-----------------------
+Commands line arguments
+-----------------------
+
+import optparse
+
+def parse_args():
+    usage = ('Usage: MyProgram [options]\n'
+             'Description: it does nothing yet')
+    parser = optparse.OptionParser(usage=usage)
+
+    parser.add_option('-b', '--battery-name', dest='battery_name',
+                      help='Battery name. You can find it out by doing '
+                           '`ls /proc/acpi/battery/`.',
+                      action='store', default='BAT0')
+    parser.add_option('-v', '--verbose', dest='verbose',
+                      help='Verbose output',
+                      action='store_true', default=False)
+
+    (cmdl_options, args) = parser.parse_args()
+    return cmdl_options, args
+
+def main(options, args):
+    if options.verbose:
+        pass
+
+if __name__ == '__main__':
+    main(*parse_args())
+
 
 ----------
 Reflection

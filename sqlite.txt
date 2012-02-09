@@ -13,8 +13,8 @@ Database level
     .tables ?PATTERN?
 
 Table level
-    .schema tables
-    pragma table_info(ew_wdict);
+    .schema TABLE
+    pragma table_info(TABLE);
 
 Row level
     select * from ew_wdict;

@@ -102,6 +102,7 @@ screenrc
 shelltitle -
 defscrollback 10000
 startup_message off
+termcapinfo xterm ti@:te@
 
 escape ^qq
     Use C-q instead of C-a

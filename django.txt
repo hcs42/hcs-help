@@ -4,7 +4,22 @@ General
     python manage.py runserver 0.0.0.0:8001 --settings=debug_settings
     python manage.py sql ew
     python manage.py syncdb
+    python manage.py shell
+    python manage.py test ew
 
 I18N
-    django-admin makemessages -a
-    django-admin compilemessages
+    django-admin.py makemessages -a
+    sed -i '/^#: /d' locale/hu/LC_MESSAGES/django.po
+    vm locale/hu/LC_MESSAGES/django.po
+    git diff locale/hu/LC_MESSAGES/django.po
+    django-admin.py compilemessages
+    # restart django
+
+Forms
+
+    <table>
+        <tr>
+          <th>{{ form.field1.label_tag }}:</th>
+          <td>{{ form.field1 }}</td>
+        </tr>
+    </table>
