@@ -6,10 +6,19 @@ netstat -ltnup
     Shows ports
 netstat -an
     netstat on Solaris
-netcat -l <host> <port>
-    Print data that arrives to a port
 mtr google.com
     Shows the route
+
+------
+netcat
+------
+
+netcat -l <host> <port>
+    Print data that arrives to a port
+UDP server
+    netcat -vvlu -s 150.132.76.142 -p 45023
+UDP client
+    netcat -vvus 150.132.76.141 -p 40000 150.132.76.142 45023
 
 -------
 tcpdump
@@ -19,6 +28,9 @@ tcpdump -i eth0 -s 10000 -w <output file> host <ip address>
     Capturing into a file
 tcpdump -r <input file>
     Work from a file
+tcpdump -i eth0 -s 10000 host 150.132.76.142
+
+netcat -vvus 10.53.0.1 -p 40000 150.132.76.142 45023
 
 
 ----------

@@ -53,10 +53,19 @@ net_adm:ping(Node)
 dbg
 ---
 
+http://stackoverflow.com/questions/1954894/using-trace-and-dbg-in-erlang
+
 dbg:tracer().
+dbg:tracer(port,dbg:trace_port(file,"/proj/netsimproj/ecsahoc/work/tr/12245_mscbc/dbg/1")).
+
 dbg:p(all, call).
+dbg:p(all, [call, timestamp]).
 dbg:tpl(Module, []).
-    Print all calls to the functions of Module.
+dbg:tpl(Module, Function, Arity, []).
+    Print all calls to the functions of Module - only for exported functions.
+    For all functions, use dbg:tp.
+dbg:stop_clear().
+
 
 Diagnostic
 ----------

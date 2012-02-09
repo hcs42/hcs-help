@@ -45,7 +45,7 @@ RET
     Next row
 S-RET
     Copy field from above
-C-space
+C-c space
     Empty cell
 M-left, M-right
     Move column
@@ -57,5 +57,3 @@ M-S-up / M-S-down
     Delete/add row
 C-c -
     Insert hline
-
-
