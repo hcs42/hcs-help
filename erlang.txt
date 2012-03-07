@@ -79,6 +79,7 @@ dtop:sort(mem)
     Sort by memory usage
 sys:get_status(pid(0,187,0))
     Get the gen_server's state
+ets:i()
 
 Connecting to erlang nodes
 --------------------------

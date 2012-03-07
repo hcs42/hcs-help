@@ -16,9 +16,9 @@ netcat
 netcat -l <host> <port>
     Print data that arrives to a port
 UDP server
-    netcat -vvlu -s 150.132.76.142 -p 45023
+    netcat -vvlu -s <server address> -p 45023
 UDP client
-    netcat -vvus 150.132.76.141 -p 40000 150.132.76.142 45023
+    netcat -vvus <client address> -p 40000 <server address> 45023
 
 -------
 tcpdump
@@ -47,4 +47,5 @@ Logs
 dmesg
     Kernel logs
 /var/log/{messages,syslog}
+/var/adm/
     Log files
