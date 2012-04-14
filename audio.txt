@@ -28,6 +28,11 @@ concatenate wav
 
     sox in1.wav in2.wav in3.wav out.wav
 
+concatenate ogg or mp3
+
+    sox in1.ogg in2.ogg out.ogg
+    sox in1.mp3 in2.mp3 out.mp3
+
 cut ogg or mp3
 
     mp3splt in.ogg 1.0 2.0 # from 60 sec to 120 sec
