@@ -17,6 +17,10 @@ wav > mp3
 
     ffmpeg -i in.wav -ab 128k -ac 1 out.mp3
 
+ogg > mp3
+
+    ffmpeg -i in.mp3 out.mp3
+
 Manipulation
 ------------
 

@@ -26,6 +26,8 @@ C-a p
     Previous window.
 C-a n
     Next window.
+C-a a
+    Previously selected window.
 C-a : number <number>
     Changing the window number.
 C-a A

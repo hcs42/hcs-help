@@ -99,6 +99,8 @@ Unix commands
     cd           os.chdir(path)
     ls           os.listdir(path)
     find         os.path.walk(path, visit_fun, arg)
+    rm           os.remove(path)
+    mv           os.rename(src, dst)
 
 Traverse a directory tree ("find"):
 
