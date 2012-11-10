@@ -16,4 +16,15 @@ USAGE
 ri:h()
     Help
 
+-------
+Queries
+-------
 
+Find a module
+    mods[name=<module>]
+Who uses a certain module?
+    mods[name=<module>].funs.called_by
+Who uses a certain module?
+    mods[name="configlib"].funs.refs.fundef[module=/=configlib]
+Who uses a certain function?
+    mods[name=<module>].funs[name=<function>].called_by

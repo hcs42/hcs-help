@@ -100,9 +100,21 @@ Unix commands
     ls           os.listdir(path)
     find         os.path.walk(path, visit_fun, arg)
 
------------------------
-Commands line arguments
------------------------
+Traverse a directory tree ("find"):
+
+    import fnmatch
+    import os
+     
+    rootPath = '..'
+    pattern = '*.txt'
+     
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            print os.path.join(root, filename)
+
+----------------------------------
+Commands line arguments / optparse
+----------------------------------
 
 import optparse
 
@@ -112,8 +124,7 @@ def parse_args():
     parser = optparse.OptionParser(usage=usage)
 
     parser.add_option('-b', '--battery-name', dest='battery_name',
-                      help='Battery name. You can find it out by doing '
-                           '`ls /proc/acpi/battery/`.',
+                      help='Battery name.',
                       action='store', default='BAT0')
     parser.add_option('-v', '--verbose', dest='verbose',
                       help='Verbose output',
@@ -129,6 +140,33 @@ def main(options, args):
 if __name__ == '__main__':
     main(*parse_args())
 
+----------------------------------
+Commands line arguments / argparse
+----------------------------------
+
+import argparse
+
+def parse_args():
+    description = "Process some stuff."
+    parser = argparse.ArgumentParser(description=description)
+
+    parser.add_argument('-b', '--battery-name', dest='battery_name',
+                        help='Battery name.',
+                        action='store', default='BAT0')
+    parser.add_argument('-v', '--verbose', dest='verbose',
+                        help='Verbose output',
+                        action='store_true', default=False)
+
+    parser.add_argument('pospar', nargs='+')
+
+    return parser.parse_args()
+
+def main(args):
+    if args.verbose:
+        pass
+
+if __name__ == '__main__':
+    main(parse_args())
 
 ----------
 Reflection

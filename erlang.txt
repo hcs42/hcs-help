@@ -20,7 +20,9 @@ Processes
 
 processes()
 pid(A, B, C)
-process_info(Pid), process_info(Pid, backtrace)
+process_info(Pid)
+process_info(Pid, backtrace)
+    > f(TMP1), {backtrace,TMP1} = process_info(list_to_pid("PIDSTR"), backtrace), io:format("~s~n",[TMP1]).
 is_pid()
 is_process_alive(Pid)
 exit(Pid, kill)
