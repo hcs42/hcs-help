@@ -1,22 +1,29 @@
- = lejátszás =
+Lejátszás
+---------
 
     $ mplayer *.avi -ass-use-margins -ass-bottom-margin 50 -ass -ass-font-scale 2
 
- = konvertálás =
+Konvertálás
+-----------
 
-  == nagy mp4 -> ok avi ==
+Nagy mp4 -> ok avi
 
     ( kameráról átvett mp4-ből elfogathadó minőségű avi)
     $ ffmpeg -i 1.mp4 -b 1000k 1.avi
 
-  == vob -> avi ==
+Nagy avi
+    (kameráról Kinoval átvett nyers aviból jó minőségű, de kb negyedakkora avi)
+
+    avconv -i input.avi -c:v libx264 -c:a copy output.avi
+
+vob -> avi
 
     $ cat vts_01_{1,2,3}.vob | \
       nice -+19 \
       mencoder -o ta_mat.avi \
       -ovc lavc -oac mp3lame -lameopts abr:br=128 -lavcopts aspect=16/9 -
 
- = dvd rippelés (dvd -> avi) =
+dvd rippelés (dvd -> avi)
 
     - acidrip: ez tűnik a legjobbnak (dvd -> avi)
     - ogmrip: a Fideszes dvd-nél jól működött, de a Másfélnél rossz minőségű
@@ -24,21 +31,25 @@
     - arista
     - thoggen
 
- = cd rippelés =
+cd rippelés
 
     - asunder
     - ripoff
     - ripperx
 
- = vágás =
+Kamera -> dv
+
+    - kino
+
+Vágás
+-----
 
     - avidemux
 
- = dvd-re írás =
+DVD-re írás
+-----------
 
-  == avi -> dvd iso ==
-
-   === programok ===
+avi -> dvd iso:
 
     - devede - remekül működik
     - mandvd - nincs hang a dvd-ben
@@ -52,10 +63,10 @@
       - mplayer:
         $ mplayer -dvd-device movie.iso dvd://2
 
-  == vobs -> dvd iso ==
+vobs -> dvd iso:
 
     $ mkisofs -o dvd.iso dvd_dir
 
-  == iso mountolása ==
+iso mountolása:
 
     mount -t iso9660 -o loop /media/usbdisk/myiso.ISO /media/dvdrecorder/
