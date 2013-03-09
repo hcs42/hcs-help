@@ -53,3 +53,9 @@ Regexp
 ------
 
     'aabb'.replace(/a+/, '$1$1')   // 'aaaabb'
+
+Printouts
+---------
+
+    console.log('hello')
+    window.alert('hello')
