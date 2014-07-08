@@ -1,0 +1,7 @@
+- Check the logs
+
+If reproducible:
+- Check the communication (Javascript console, wireshark)
+- Try to execute the steps manually.
+- If a procedure fails, try to continue with manual steps.
+- git bisect

@@ -1,15 +1,21 @@
-| --------
-| Sessions
-| --------
-| 
-| ?
-|     Detach other session.
-| ?
-|     Attach to a not detached screen.
-| ?
-|     Reattach to a detached screen process.
+--------
+Sessions
+--------
+
+tmux list-sessions
+    List sessions
+tmux attach -d -t hcs42 || tmux new -s hcs42
+    Attach to a session; create it if necessary
 C-a d
     Detach session
+C-a $
+    Rename session
+C-a s
+    Select session
+C-a L
+    Switch back to previous session
+C-a :new-session -s <session name>
+    New session
 
 -------
 Windows
@@ -28,13 +34,10 @@ C-a n
     Next window.
 C-a l
     Previously selected window.
-C-a :move-window -t <number>
-C-a :swap-window -t <number or name>
-    Changing the window number.
+C-a :move-window -t <session>:
+    Move window into another session
 C-a ,
     Renaming a window.
-| C-a N
-|     Show info about the current window.
 C-a &
     Kill the current window.
 
@@ -60,73 +63,84 @@ C-a :break-pane
     Make the pane a new window
 C-a resize-pane ...
     Resize the pane
+C-a select-layout even-vertical
+    Equally resize panes
+C-a :setw synchronize-panes
+    Type in all panes
+C-a x
+    Kill pane
+
+---------
+Copy mode
+---------
+
+### Main ###
+
+C-a [
+    Enter copy mode.
+q
+    Quit copy mode
+Escape
+    Clear selection
+
+### Movements ###
+
+h, j, k, l
+    Move one character
+w, e, W, E, b, B
+    Move one word
+f, F, t, T, comma, ;
+    Jump to character
+0, ^, $, g, G
+    Move to beginning/end of the line/file
+H, M, L
+    Move to top/middle/bottom of the screen
+C-b, C-f, C-d, C-u
+    (Half-)page(up/down)
+:<num>
+    Go to line                   :
+/, ?, n, N
+    Search
+C-e/C-Down, C-y/C-up
+    Scroll
+
+### Changes ###
+
+d
+    Delete entire line
+D
+    Delete/Copy to end of line
+
+### Selection ###
+
+Space
+    Start selection              
+Enter
+    Copy selection
+p
+    Paste buffer
+v 
+    Rectangle toggle
 
 -------
-| Regions
-| -------
-| 
-| C-a S
-|     Split region.
-| C-a tab
-|     Next region
-| C-a Q
-|     Delete other regions
-| C-a X
-|     Delete current region
-| C-a : resize <arg>
-|     +N    increase current region height by N
-|     -N    decrease current region height by N
-|      N    set current region height to N
-|      =    make all windows equally high
-|      max  maximize current region height
-|      min  minimize current region height
-| 
-| ---------
-| Copy mode
-| ---------
-| 
-| C-a <esc>
-|     Enter copy mode.
-| /, ?, n, N
-|     Search
-| <space>
-|     Mark, copy to paste buffer
-| A
-|     Append to paste buffer
-| 
-| -------
-| Buffers
-| -------
-| 
-| C-a >
-|     Write the paste buffer to /tmp/screen-exchange
-| C-a <
-|     Read the paste buffer from /tmp/screen-exchange
-| C-a ]
-|     Paste the paste buffer
-| 
-| ----
-| Misc
-| ----
-| 
-| C-a H
-|     Log
-| C-a M
-|     Monitor the current window for activity
-| C-a _
-| silence [on|off|sec]
-|     Monitor the current window for silence
-| sessionname [name]
-|     Set the session name
-| shelltitle [title]
-|     Sets the default shell title
+Buffers
+-------
+
+C-a [-a] :save-buffer <filename>
+    Write the paste buffer to the given file
+C-a ]
+    Paste the paste buffer
 
 ------
 tmuxrc
 ------
 
+File: ~/.tmux.conf
+(https://github.com/yesmeck/tmuxrc/blob/master/tmux.conf)
+
 unbind C-b
 set -g prefix C-a
+bind C-a send-prefix
 
 ------
 Setups
@@ -141,6 +155,3 @@ tmux new-window -t hawkhost:2 -n 'Server2' 'echo 2'
 tmux new-window -t hawkhost:3 -n 'Server3' 'echo 3'
 tmux select-window -t hawkhost:1
 tmux -2 attach-session -t hawkhost
-
-| Vim window = screen region
-| Vim buffer = screen window

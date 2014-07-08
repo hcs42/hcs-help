@@ -9,7 +9,7 @@ code:load_abs("/home/me/mymodule"). % no ".beam"
 l(mymodule), nl(mymodule)
     Loads mymodule to this or all nodes.
 c("/home/me/mymodule"). % no ".beam"
-    Compiles and loads mymodule.
+    Compiles and loads (an purges) mymodule.
 m()
     Shows loaded modules.
 
@@ -31,6 +31,11 @@ erlang:process_display(LocalPid, backtrace)
 rpc:pinfo(Pid), rpc:pinfo(Pid, Item)
 registered(), whereis()
 global:registered_names(), global:whereis_name(Name).
+
+Upgrade gen_server
+------------------
+
+Up = fun(Mod) -> [sys:suspend(Mod), code:purge(Mod), code:load_file(Mod), sys:change_code(Mod,Mod,"0",[]), sys:resume(Mod)] end.
 
 Ports
 -----
@@ -55,19 +60,39 @@ net_adm:ping(Node)
 dbg
 ---
 
+Quick start:
+
+    dbg:tracer().
+    dbg:p(all, call).
+    dbg:tpl(Module, []).
+    dbg:tpl(Module, Function, Arity, [{'_', [], [{return_trace}]}]).
+
 http://stackoverflow.com/questions/1954894/using-trace-and-dbg-in-erlang
 
 dbg:tracer().
-dbg:tracer(port,dbg:trace_port(file,"/proj/netsimproj/ecsahoc/work/tr/12245_mscbc/dbg/1")).
+dbg:tracer(port, dbg:trace_port(file, os:getenv("HOME") ++ "/myfile.dbg")).
+dbg:tracer(process, {fun (_,100) -> dbg:stop_clear();
+                        (Msg, N) -> io:format("~p~n", [Msg]), N+1 end, 0
+                    }).
 
 dbg:p(all, call).
 dbg:p(all, [call, timestamp]).
 dbg:tpl(Module, []).
-dbg:tpl(Module, Function, Arity, []).
-    Print all calls to the functions of Module - only for exported functions.
-    For all functions, use dbg:tp.
+dbg:tpl(Module, Function, Arity, [{'_', [], [{return_trace}]}]).
+    Print all calls to the functions of Module.
+dbg:tp(...)
+    Same as tpl, but only for exported functions.
 dbg:stop_clear().
 
+Redbug
+------
+
+redbug:start(["erlang:demonitor->return"],[{msgs,100},print_pid]).
+
+Profiling
+---------
+
+See erlang-profiling.
 
 Diagnostic
 ----------
@@ -99,5 +124,87 @@ The HOST environment variable has to be set.
 Compiling an OTP module
 -----------------------
 
-erlc +debug_info -o ../ebin -I ../include ssl_manager.erl 
+erlc +debug_info -o ../ebin -I ../include ssl_manager.erl
 
+Regular expressions
+-------------------
+
+re:run(Text, Pattern, [{capture, none}]) ->
+    match | nomatch
+
+re:run(Text, Pattern, [{capture, all, list}]) ->
+    {match, [Group0, Group1, Group2, ...]} |
+    nomatch
+re:replace(Text, Pattern, Replacement, [global, {return, list}])
+
+Records in the shell
+--------------------
+
+rd(RecordName, RecordDefinition)
+    Defines a record in the shell.
+
+rl()
+rl(RecordName)
+rl(RecordNames)
+    Prints record definitions.
+
+rp(Term)
+    Prints a term using the record definitions known to the shell.
+
+Shell
+-----
+
+catch_exception(true).
+
+Date, time
+----------
+
+Datetime representations:
+    erlang:timestamp() = {MegaSecs, Secs, MicroSecs} -- time since the epoch (tz independent)
+    gregorian_seconds() = integer() -- number of seconds since year 0 (tz naive)
+    datetime() = {{Year, Month, Day}, {Hour, Minute, Seconds}} (tz naive)
+
+Functions for getting the current datetime:
+    os:timestamp() -> erlang:timestamp()
+    erlang:now() -> erlang:timestamp()
+    calendar:local_time() -> current datetime() in local time
+    calendar:universal_time() -> current datetime() in UTC
+
+Conversion functions:
+    calendar:datetime_to_gregorian_seconds(datetime()) -> gregorian_seconds() in same time zone
+    calendar:gregorian_seconds_to_datetime(gregorian_seconds()) -> datetime() in same time zone
+    calendar:local_time_to_universal_time(datetime()) in local time -> datetime() in UTC
+    calendar:universal_time_to_local_time(datetime()) in UTC -> datetime() in local time
+    calendar:now_to_local_time(erlang:timestamp()) -> datetime() in local time
+    calendar:now_to_universal_time(erlang:timestamp()) -> datetime() in UTC
+
+Crash dumps
+-----------
+
+    > crashdump_viewer:start().
+
+Mnesia
+------
+
+Print all tables
+
+    [io:format("~p~n", [T]) || T <- lists:sort(mnesia:system_info(tables))], ok.
+
+ST = fun(TableName) ->
+             Iterator =  fun(Rec,_)->
+                                 io:format("~p~n",[Rec]),
+                                 []
+                         end,
+             case mnesia:is_transaction() of
+                 true -> mnesia:foldl(Iterator,[],TableName);
+                 false -> 
+                     Exec = fun({Fun,Tab}) -> mnesia:foldl(Fun, [],Tab) end,
+                     mnesia:activity(transaction,Exec,[{Iterator,TableName}],mnesia_frag)
+             end
+     end.
+
+Etc
+---
+
+Convert number from base <from> to base <to>
+    io:format("~.<to>B", [<from>#Number]).

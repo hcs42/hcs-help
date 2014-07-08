@@ -1,0 +1,18 @@
+sudo apt-get install libsqlite3-dev
+libreadline-dev
+
+~/virtualenv/python34/
+CD ~/virtualenv/python34/
+mkdir python-inst
+wget https://www.python.org/ftp/python/3.4.0/Python-3.4.0.tar.xz
+tar xf Py*
+rm Py*.xz
+cd Py*
+./configure --prefix ~/virtualenv/python34/python-inst && make && make install
+cd ..
+
+# We are at ~/virtualenv/python34/
+/home/hcs/virtualenv/python34/python-inst/bin/pyvenv django16
+. django16/bin/activate
+pip install django==1.6.5
+pip install gunicorn

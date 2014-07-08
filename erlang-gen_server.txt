@@ -1,0 +1,31 @@
+start_link() ->
+    gen_server:start_link(?MODULE, [], []).
+
+start_link_local() ->
+    gen_server:start_link({local, local_hcs_server},
+                          ?MODULE, [], []).
+
+start_link_global() ->
+    gen_server:start_link({global, global_hcs_server},
+                          ?MODULE, [], []).
+
+start() ->
+    gen_server:start(?MODULE, [], []).
+
+start_local() ->
+    gen_server:start({local, local_hcs_server}, ?MODULE, [], []).
+
+start_global() ->
+    gen_server:start({global, global_hcs_server}, ?MODULE, [], []).
+
+next_number(ServerRef) ->
+    gen_server:call(ServerRef, next_number, _Timeout=3).
+
+next_number_local() ->
+    gen_server:call(local_hcs_server, next_number,
+                    _Timeout=3).
+
+next_number_global() ->
+    gen_server:call({global, global_hcs_server}, next_number,
+                    _Timeout=3).
+

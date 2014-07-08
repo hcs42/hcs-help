@@ -3,6 +3,8 @@ General
 
 Add a remote repository
     git remote add <remotename> <refspec>
+Remove a remote repository
+    git remote remove <remotename>
 
 Using own remote repository
 ---------------------------
@@ -28,3 +30,9 @@ Fetch all branches that are present in the remote repository
     git fetch <remotename>
 Delete all branches that are not present in the remote repository
     git remote prune <remotename>
+
+Using several remote repositories
+---------------------------------
+
+Fetch and prune branches
+    git fetch --all -p

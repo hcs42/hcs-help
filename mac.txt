@@ -1,0 +1,41 @@
+Mac:
+    cmd-shift-4 = screen shot
+    cmd-m = minimize window
+    ctrl-cmd-Z (custom) = maximise current window
+    ctrl-shift-eject = lock screen
+
+Commands:
+    locate = mdfind
+
+Accents:
+    alt-e = á, é, í
+    alt-u = ó, ö, ú, ü
+    alt-j = ő, ű
+
+Mail:
+    cmd-0 = main window
+    cmd-n = new message
+    cmd-D = send message
+
+Chrome:
+    cmd-l = url bar
+    cmd-Y = history
+    cmd-J = downloads
+    alt-cmd-j = javascript console
+
+Terminal > Preferences > Settings > Keyboard
+    (press <escape> for inputing \033)
+    shift-up     \033[1;2A
+    shift-down   \033[1;2B
+    shift-right  \033[1;2C
+    shift-left   \033[1;2D
+    option-up     \033\033[A
+    option-down   \033\033[B
+    option-right  \033\033[C
+    option-left   \033\033[D
+
+Tricks
+    Pasting a file name in the open file window
+        shift-command-G
+    Finder window, go up
+        Right click on the top bar

@@ -1,20 +1,16 @@
-Environment variables:
-    $HCS_VIM
-        Starts the preferred version of vim
-    $HCS_VIM_F
-        Starts the preferred version of vim that does not fork
-Commands:
-    v-
-        Starts a vim that reads from stdin
-    v_start_server [<servername>]
-        Starts a vim server. <servername> is "main" by default.
-    v <file>...
-        Edits the given files
-    vs <servername> <file>...
-        Edits the given files in the given server
-    vm <file>...
-        Edits the given files in the "main" server
-    vs_edit <servername> <file>...
-        Edits the given named file in the given server
-    vm_edit <name>
-        Edits the given named file in the "main" server
+Vim as a command line tool:
+
+    $ (echo 1; echo 2; echo 3 ) | \
+      vim - -nesN -u NONE \
+      -c 'exec "normal gg\<c-v>GI  "' \
+      -c 'exec "normal ggO<html>\<cr><body>\<esc>Go</body>\<cr></html>"' \
+      -c '%p' \
+      -c 'q!' | sed 1d
+
+    <html>
+    <body>
+      1
+      2
+      3
+    </body>
+    </html>

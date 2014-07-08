@@ -23,3 +23,5 @@ Forms
           <td>{{ form.field1 }}</td>
         </tr>
     </table>
+
+https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/

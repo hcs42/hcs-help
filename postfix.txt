@@ -1,0 +1,12 @@
+# hcs -- http://www.admin-hints.com/2009/04/how-to-limit-amount-of-messages-per.html
+
+#Clients that are excluded from connection count (default: $mynetworks)
+smtpd_client_event_limit_exceptions =
+
+#The time unit over which client connection rates and other rates are calculated. (default: 60s)
+anvil_rate_time_unit = 60s
+
+#How frequently the server logs peak usage information. (default: 600s)
+anvil_status_update_time = 120s
+
+smtpd_client_message_rate_limit=2

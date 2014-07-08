@@ -3,7 +3,7 @@ Date
 ----
 
 Datetime representations:
-    timestamp (float) -- seconds since the epoch (tz independent)
+    timestamp (float) -- seconds since the epoch (tz independent, i.e. it always means UTC)
     struct_time -- a sequence of 9 integers (tz naive)
     datetime -- an object (tz naive [1])
 
@@ -22,6 +22,7 @@ Conversion functions:
     datetime.fromtimestamp(timestamp) -> datetime in local time
     datetime.timetuple(self) -> struct_time
     datetime.datetime(*list(struct_time)[0:6]) -> datetime
+    datetime_obj.replace(tzinfo=datetime.timezone.utc).timestamp() in UTC -> timestamp
 
 Printing functions:
     time.ctime(timestamp) -> str
@@ -58,7 +59,7 @@ Echo into process
     ==>
     p = subprocess.Popen(['mycmd'], stdin=PIPE)
     p.communicate('text')
-    
+
 Command as a string
     subprocess.call("mycmd myarg", shell=True)
 
@@ -106,10 +107,10 @@ Traverse a directory tree ("find"):
 
     import fnmatch
     import os
-     
+
     rootPath = '..'
     pattern = '*.txt'
-     
+
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, pattern):
             print os.path.join(root, filename)
@@ -117,6 +118,8 @@ Traverse a directory tree ("find"):
 ----------------------------------
 Commands line arguments / optparse
 ----------------------------------
+
+# See also argparse below, that is more modern!
 
 import optparse
 
@@ -149,17 +152,16 @@ Commands line arguments / argparse
 import argparse
 
 def parse_args():
-    description = "Process some stuff."
+    description = "description: process some stuff."
     parser = argparse.ArgumentParser(description=description)
 
     parser.add_argument('-b', '--battery-name', dest='battery_name',
                         help='Battery name.',
                         action='store', default='BAT0')
     parser.add_argument('-v', '--verbose', dest='verbose',
-                        help='Verbose output',
+                        help='Verbose output.',
                         action='store_true', default=False)
-
-    parser.add_argument('pospar', nargs='+')
+    parser.add_argument('files', nargs='+')
 
     return parser.parse_args()
 
@@ -186,6 +188,28 @@ wget
 
 import urllib2
 response = urllib2.urlopen('http://python.org/').read()
+
+---------
+Profiling
+---------
+
+Profiling a function call:
+
+    import cProfile
+    cProfile.runctx("1 + 1", globals(), locals(), sort='time')
+
+Profiling a script:
+
+    python -m cProfile -s time myscript.py
+
+Profiling a script 2:
+
+    python -m cProfile -s time -o prof.txt myscript.py; python p.py
+    cat >> p.py <<EOF
+import pstats
+pstats.Stats('prof.txt').strip_dirs().sort_stats('cumulative').print_stats()
+# 'time' sorting is also useful
+EOF
 
 ----
 Misc

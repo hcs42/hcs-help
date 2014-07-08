@@ -1,0 +1,14 @@
+Autostart
+---------
+
+Method 1:
+
+    Create a .desktop file in ~/.config/autostart/
+
+Method 2:
+
+    Create a ~/.config/lxsession/Lubuntu/autostart file and add the name of
+    your program (with the parameters, after at @ sign) here. You cannot do
+    redirections in this file.
+
+Both methods work with bash scripts.

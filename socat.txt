@@ -1,0 +1,1 @@
+echo hello | socat - tcp4:162.13.122.30:12000

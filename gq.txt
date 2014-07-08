@@ -1,0 +1,12 @@
+I, i
+    Insert above/below
+O, o
+    Insert top/bottom
+e, n
+    Edit
+shift-enter
+    Add linebreak
+r
+    Refresh
+C
+    Cross off

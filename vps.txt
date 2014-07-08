@@ -1,0 +1,64 @@
+Things to set up when having a server and a domain name
+-------------------------------------------------------
+
+Mail
+----
+
+Configuration on the server:
+
+1. Edit /etc/postfix/main.cf:
+
+   - set 'myhostname' to your main domain.
+   - add your domain names to 'mydestination'.
+
+2. Restart postfix: sudo /etc/init.d/postfix restart
+
+3. Check the SNMP hostname:
+
+    $ telnet localhost 25
+    [...]
+    220 mydomain.com ESMTP Postfix
+    quit
+
+Configuration on the name server of the server provider (e.g. Hetzner):
+
+1. Set your main domain as the reverse DNS URL:
+
+   With Hetzner: Reverse DNS Entries can only be created via the corresponding
+   Robot function (menu item "Server" -> click on the server -> "IPs" -> click
+   on the text field at right next to the desired IP address).
+
+   See also: http://wiki.hetzner.de/index.php/DNS-Reverse-DNS/en
+
+Configuration on the name server of the domain provider (e.g. No-IP):
+
+1. Set MX record as "mydomain.com".
+2. Set SPF record as "v=spf1".
+
+Troubleshooting
+---------------
+
+Relay access denied:
+
+    The server denies the email delivery with the following text:
+    
+        "554 554 5.7.1 <hcs@exponwords.com>: Relay access denied (state 14)"
+
+    The solution is to set 'mydestination' in the postfix configuration file
+    correctly.
+
+Some email servers won't accept email from my server:
+ 
+    Some email undelivered and sent back with the following error message:
+
+        550 Access denied - Invalid HELO name (See RFC2821 4.1.1.1) (in reply
+        to MAIL FROM command)
+
+    Some other email undelivered and sent back with the following error message:
+
+    Client host rejected: You have mass IP pool like reverse in DNS, fix it or
+    use smtp relay from your provider. (in reply to RCPT TO command)
+
+    Solution: hopefully to set the reverse DNS lookup correctly.
+
+    See also: http://serverfault.com/questions/335210/

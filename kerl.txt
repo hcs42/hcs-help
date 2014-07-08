@@ -1,0 +1,15 @@
+~/.kerlrc:
+
+    KERL_CONFIGURE_OPTIONS="--disable-hipe --enable-smp-support --enable-threads --enable-kernel-poll --enable-darwin-64bit --with-odbc=/usr/local/Cellar/unixodbc/2.3.1 --with-ssl=/usr/local/Cellar/openssl/1.0.1e"
+    KERL_DEFAULT_INSTALL_DIR=/Users/hcs/w/kerl/
+    KERL_ENABLE_PROMPT=true
+
+kerl update releases
+kerl list releases
+
+kerl build 17.0 17.0
+kerl build 16B03 R16B03
+kerl install R15B
+kerl install 17.0
+
+kerl install R16B03 # ~/w/kerl/R15B

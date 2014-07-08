@@ -5,6 +5,13 @@ fsck
 info
     cat /proc/cpuinfo
 
+------------
+system state
+------------
+
+nethogs
+    network top
+
 -------
 version
 -------
@@ -15,3 +22,15 @@ ubuntu:
     $ lsb_release -a
 all:
     $ uname -a
+
+--------
+Packages
+--------
+
+Delete old kernel versions
+
+    dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+
+Install security updates
+
+    unattended-upgrade

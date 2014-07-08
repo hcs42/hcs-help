@@ -3,3 +3,7 @@ abspath, basename, pathname:
     readlink -f "$file" # abs path
     basename "$file"
     dirname "$file"
+
+Date:
+
+    date "+%Y-%m-%d %H:%M:%S"

@@ -1,0 +1,4 @@
+Things to do when cloning a repository:
+
+$ git config user.email csaba.hoch@gmail.com
+$ echo "hcs" >> .git/info/exclude

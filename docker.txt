@@ -1,0 +1,39 @@
+Container states
+    non-existant
+    running
+    stopped
+    paused
+
+Image info
+    docker images # list images
+
+Image operations
+    docker pull IMAGE
+    docker rmi IMAGE
+
+Container info
+    docker ps [-a]    # list containers
+    docker top CONTAINER
+    docker logs [-f] CONTAINER
+    docker port CONTAINER PRIVATE_PORT
+
+Container operations
+    docker run IMAGE CMD...  # non-existant -> running
+    docker stop CONTAINER    # running -> stopped
+    docker start CONTAINER   # stopped -> running
+    docker pause CONTAINER   # running -> paused
+    docker unpause CONTAINER # paused -> running
+    docker rm CONTAINER      # stopped -> non-existant
+
+Building containers
+    docker build -t="hcs42/myproject:v1" .
+
+Examples
+    docker run ubuntu:14.04 /bin/echo 'Hello World'
+    docker run -t -i ubuntu:14.04 /bin/bash
+    docker run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello; sleep 1; done"
+    docker run -d -P training/webapp python app.py
+    docker run -d -p 5000:5000 training/webapp python app.py
+
+Check disk space used by images:
+    sudo sh -c "du -sm /var/lib/docker/aufs/diff/*"

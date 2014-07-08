@@ -1,0 +1,1 @@
+lager:set_loglevel(lager_console_backend, debug).

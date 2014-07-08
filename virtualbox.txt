@@ -10,3 +10,6 @@ Installation
 Mount
 
     mount -t vboxsf -o uid=1000,gid=1000 <shared_folder_name> <mount_point>
+
+/etc/fstab:
+    Dropbox   /home/hcs/Dropbox   vboxsf   defaults,uid=1001,gid=1001  0   0 

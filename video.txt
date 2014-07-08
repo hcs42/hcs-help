@@ -23,9 +23,18 @@ vob -> avi
       mencoder -o ta_mat.avi \
       -ovc lavc -oac mp3lame -lameopts abr:br=128 -lavcopts aspect=16/9 -
 
+Video mérete
+
+    mencoder in.avi -o out.avi -ovc lavc -oac copy -vf scale=720:400
+
+Bármiből "MPEG 4 Part 2" + MP3 + AVI
+
+    mencoder in.avi -o out.avi -ovc lavc -oac mp3lame -vf scale=720:306
+
 dvd rippelés (dvd -> avi)
 
     - acidrip: ez tűnik a legjobbnak (dvd -> avi)
+        - egy Jóbarátok rész: 500 MB
     - ogmrip: a Fideszes dvd-nél jól működött, de a Másfélnél rossz minőségű
       lett az ogm (dvd -> ogm)
     - arista
@@ -40,6 +49,24 @@ cd rippelés
 Kamera -> dv
 
     - kino
+
+avi -> mp3
+
+    mplayer -dumpaudio -dumpfile out.mp3.tmp in.avi
+    sox out.mp3.tmp out.tmp # fix the index
+
+Összefűzés/konkatenálás, szétvágás
+----------------------------------
+
+mp3 szétvágás:
+
+    mp3splt in.mp3 0.0 $((hours*60+minutes)).$seconds
+
+mp3 összefűzés:
+
+    sox 1.mp3 2.mp3 out.mp3
+    avconv -i "concat:1.mp3|2.mp3" -acodec copy out.mp3
+    ffmpeg -i "concat:1.mp3|2.mp3" -acodec copy out.mp3
 
 Vágás
 -----
@@ -70,3 +97,79 @@ vobs -> dvd iso:
 iso mountolása:
 
     mount -t iso9660 -o loop /media/usbdisk/myiso.ISO /media/dvdrecorder/
+
+Formats: containers, audio and video
+------------------------------------
+
+Container formats:
+- AVI (Microsoft, derivate of RIFF)
+- ASF (Microsoft, usually contains wmv)
+- MOV (Apple)
+- AVCHD (usually contains H264)
+- FLV (flv, swf)
+- MPEG-1 Part 1 (MPEG-PS; .mpg; for Video Compact Disks)
+- MPEG-2 Part 1 (MPEG-PS, MPEG-TS)
+- MPEG-4 Part 12 = ISO based media file format (usually .mp4)
+- MPEG-4 Part 14 = MP4 (contains MPEG-4 Part 2 or H.264)
+- DivX Media Format 
+  III for audio)
+- Matroska (O/S)
+- WebM (contains VP8 for video, Vorbis for audio)
+- Ogg (O/S, usually contains Theora and Vorbis)
+- RealMedia (.rm, contains RealVideo and RealAudio)
+- VOB (DVDs; modification of MPEG-PS)
+
+Video formats:
+- MPEG-1 Part 2
+- MPEG-2 Part 2 = H.262 (divx, xvid)
+- MPEG-4 Part 2 = MPEG-4 Visual
+- MPEG-4 Part 10 = H.264 = AVC (web, Blu-Ray)
+- WMV (Microsoft)
+- VP8 (Google, O/S)
+- Theora (O/S, usually in Ogg)
+- RealVideo (usually in RealMedia)
+
+Audio formats:
+- MPEG-1 Part 3 Layer II = MP2 (in DVDs)
+- MPEG-1 Part 3 Layer III → MP3
+- MPEG-2 Part 3 Layer III → MP3
+- AAC = MPEG-2 Part 7 = MPEG ADTS
+- MPEG-4 Part 3 (several formats, including AAC)
+- Vorbis (O/S, usually in Ogg)
+- WMA (Microsoft)
+- RealAudio (usually in RealAudio)
+
+Software: encoders, decoders, converters, players, editors
+----------------------------------------------------------
+
+AV codecs (=encoder-decoders):
+- divx (supports: "AVI + MPEG-4 Part 2 + MP3"; "DIVX + WMA + WMV"; MP4; MOV)
+- xvid (O/S version of divx; supports MPEG-4 Part 2)
+- ffmpeg/libavcodec (supports many formats; used by many O/S programs)
+- libav/libavcodec
+
+Video encoders:
+- x264 (encodes into H.264)
+
+Audio encoders:
+- LAME (encodes into MP3)
+
+AV players:
+- MPlayer (uses ffmpeg/libavcodec)
+- VLC (uses ffmpeg/libavcodec)
+- xine (uses ffmpeg/libavcodec)
+
+AV editors:
+- Avidemux (uses ffmpeg/libavcodec)
+- Kino (uses libavcodec)
+
+AV converters:
+- avconv (uses libav/libavcodec)
+- FFmpeg (uses ffmpeg/libavcodec)
+- MEncoder (uses ffmpeg/libavcodec)
+
+Audio editors:
+- Audacity (uses libavcodec)
+- SoX (uses libavcodec)
+
+http://www.videomaker.com/article/15362-video-formats-explained

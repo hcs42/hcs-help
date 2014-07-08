@@ -1,0 +1,7 @@
+https://github.com/virtan/eep
+
+{ok, Tracer} = fprof:profile(start),
+fprof:trace([start, {tracer, Tracer}]),
+%% Code to profile
+fprof:trace(stop);
+

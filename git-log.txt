@@ -6,7 +6,10 @@ grep
 showing one commit
     Gl -p -n1 <commit>
 graph
+    # git log tree (similar to what gitk shows)
     Gl --all --graph --decorate --date-order --date=default
+
+    # git log references (newest commit on the top: like a "real" history)
     Gl --all --decorate --date=default --walk-reflogs --no-merges
 since
     Gl -p --since=2009-06-01
